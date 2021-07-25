@@ -1,4 +1,4 @@
-# PragmatechFoundationProject
+
 <h1><strong>Salahov Nofəl</strong>--Domination of road . Mad Will</h1>
 
 <h2>Haqqımda qısa məlumat</h2>
