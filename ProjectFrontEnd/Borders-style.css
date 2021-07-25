@@ -1,0 +1,42 @@
+
+.box{
+    width: 150px;
+    height: 150px;
+    margin-left: 15px;
+    margin-top: 20px;
+    float: left;
+    background-color: lightgray;
+}
+
+
+#frist{
+    ;
+    border-left: 5px solid ;
+    border-left-color: darkcyan;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+#second{
+    
+    border-top-style: dashed;
+    border-top-width: 9px;
+    border-radius: 4px;
+    border-top-color: blue;
+ 
+}
+
+#third{
+    
+    border-bottom: 5px solid ;
+    border-bottom-color: yellowgreen;
+    border-top-left-radius: 30px;
+    border-top-right-radius:30px;
+    
+}
+
+#forth{
+    border: 5px solid green;
+    border-radius: 50%;
+}
