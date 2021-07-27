@@ -1,59 +1,99 @@
-html {
-  font-size: 10px; }
+ 
 
-* {
-  margin: 0;
-  padding: 0; }
+aside{
+    float: left;
+    margin-top: 90px;
+    width: 314px;
+    
+    
+    position: sticky;
+    top: 70px;
+    border-right: 1px solid grey;
+    
+}
 
-nav {
-  display: flex;
-  flex-direction: row;
-  background-color: goldenrod; }
-  nav ul {
-    margin-left: auto;
-    list-style: none;
-    flex-basis: 50rem;
-    margin-left: auto;
-    display: flex; }
-    @media screen and (max-width: 992px) {
-      nav ul {
-        flex-basis: 0;
-        flex: 1; } }
-    @media screen and (max-width: 576px) {
-        html{
-            font-size: 6px;
-        }
-      nav ul {
-        flex-direction: column; }
-        nav ul li:not(:last-child) {
-          border: none;
-          border-bottom: 3px solid #e9b83d; } }
-    nav ul li {
-      flex: 1; }
-      nav ul li a {
-        display: block;
-        color: white;
-        text-decoration: none;
-        text-transform: capitalize;
-        text-align: center;
-        padding: 2.5rem 0;
-        font-size: 1.9rem;
-        background-color: goldenrod;
-        transition: background-color 0.3s linear; }
-        nav ul li a:hover {
-          background-color: #e9b83d; }
+.aside{
+    background-color: aquamarine;
+    height: 358px;
+    width: 300px;
+}
 
-/*a{
-    flex: 1;
-    box-sizing: border-box;
-    font-size:1.9rem;
-    text-decoration: none;
-    text-transform: capitalize;
-    padding: 25px 0;;
+#scoll{
+    
+    width: 45px;
+    height: 22px;
+    position: fixed;
+    bottom: 7.5px;
+    right: 7.5px;
+}
+
+#yux{
+    
+    background-color: violet;
+    float: left;
     text-align: center;
-    color: white;
-                 
-    &:hover{
-            background-color: rgb(233,184,61);
-                    }
-            }*/
+    
+}
+ 
+#cax{
+    background-color: blanchedalmond;
+    float: right;
+    text-align: center;
+}
+
+.tess{
+    width: 20px;
+    height: 20px;
+    background-color: darkviolet;
+}
+
+table{
+    border-width: thin;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+td{
+    text-align: center;
+    font-weight: bold;
+}
+
+main{
+    float: right;
+    width: 1005px;
+    height: 1000px;
+    background-color: yellowgreen;
+    
+   
+}
+
+#main{
+    float: right;
+    width: 1005px;
+    height: 1000px;
+    
+}
+
+footer{
+   
+    height: 170px;
+    background-color: mediumseagreen;
+}
+
+.inline{
+    display: inline;
+}
+
+.chinn{
+    width: 340px;
+    height: 100px;
+    
+    text-align: center;
+    position: relative;
+    top: 50px;
+    left: 520px;
+    
+    
+
+    
+}
