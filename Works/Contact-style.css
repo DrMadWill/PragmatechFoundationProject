@@ -1,0 +1,55 @@
+/* Contact */
+
+#contact{
+    
+}
+
+#contact h2{
+    color:#2c5e50 ;
+    font-size: 4.8rem;
+}
+
+
+#contact-form{
+    width: 70%;
+    margin: 0 auto;
+    
+    margin-top: 7rem;
+    text-align: left;
+}
+
+.form-group{
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
+    
+}
+
+
+.form-group input,#message{
+    width: 100%;
+    display: block;
+    border: none;
+    font-size: 2.4rem;
+}
+
+.form-group input:focus{
+    outline: none;    
+    
+}
+
+
+.btn-primery{
+    color: #fff;
+    background-color: #18BC9C;
+    border-color:  #18BC9C;
+    padding:1.2rem 0.9rem;
+}
+
+
+.btn-primery:hover{
+    color: black;
+    background-color: #128f86;
+    border-color: #128f86;
+    
+}
