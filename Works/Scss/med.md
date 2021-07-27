@@ -1,1 +1,1 @@
-<b>Scss</b>
+<strong>Scss</strong>
