@@ -1,0 +1,167 @@
+ 
+header{
+     
+    height:112px;
+    background-color: yellowgreen;
+    z-index: 1;
+}   
+
+#ustheader{
+    
+    height: 70px;
+    background-color: orangered;
+    position: fixed;
+    top: 0;
+    left: 7.5px;
+}
+
+#araliq{
+    height:62px;
+}
+
+#altheader{
+    height: 50px;
+    background-color: aqua;
+    
+    
+    
+}
+
+#baslog{
+    float: left;
+    width: 330px;
+    height: 70px;
+    background-color: greenyellow;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#axtaris{
+    float: left;
+    width:640px;
+    height: 70px;
+    background-color: azure;
+}
+
+#my{
+    float: right;
+    width: 363px;
+    height: 70px;
+    background-color: bisque;
+}
+
+.tinn{
+    float: right;
+    width: 52px;
+    height: 70px;
+    border-right: 1px solid gray;
+    
+}
+
+.vinn{
+    width: 150px;
+    height: 48px;
+    border-right: 1px solid red;
+    float: right;
+    text-align: center;
+}
+
+#kaydol{
+    
+}
+
+#gris{
+     border-left: 1px solid red;    
+}
+
+a{
+    text-decoration: none;
+}
+
+#ten{
+    border-left: 1px solid gray;
+}
+
+#myten{
+    
+}
+
+#bildir{
+    
+}
+
+#anasafaprofil{
+    
+}
+
+.stiky{
+    position: sticky;
+    top: 0
+}
+
+form{
+    margin-top:18px;
+
+}
+
+input{
+    float: left;
+}
+input[type="search"]{
+    
+    width:570px ;
+    padding: 4px 15px;
+    box-sizing: border-box;
+    font-size: 17px;
+    
+}
+
+input[type="submit"]{
+    
+    
+    width: 70px;
+    height: 32px;
+    
+    border-radius: none;
+    border-width: thin;
+    border-left: none;
+}
+
+#idi{
+    display: none;
+    width: 50px;
+    text-align: center;
+    padding: 3px 4px;
+    
+    position: absolute;
+    top: 120%;
+    left: 10%;
+    
+    border-radius: 4px;
+    background-color: black;
+    color: #fff;
+    z-index: 1;
+       
+}
+
+#idi::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 45%;
+    
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.axtar:hover #idi{
+    display: inline-block;
+}
+
+.axtar{
+    display: inline-block;
+    position: relative;
+}
+
