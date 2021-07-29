@@ -1,0 +1,36 @@
+/*461*/
+* {
+  margin: 0;
+  padding: 0; }
+
+div.container {
+  width: 600px;
+  margin: 30px; }
+  div.container ul {
+    list-style: none; }
+    div.container ul li {
+      display: flex;
+      background-color: #fdebd9;
+      padding: 20px;
+      margin-bottom: 15px; }
+      div.container ul li i {
+        height: 90px;
+        font-size: 90px;
+        border: 7px solid #000;
+        border-radius: 12px;
+        padding: 15px; }
+      div.container ul li div.mesaje {
+        margin: 0 25px; }
+        div.container ul li div.mesaje h4 {
+          text-transform: uppercase;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 5px; }
+        div.container ul li div.mesaje p {
+          margin-top: 7px;
+          text-indent: 15px;
+          text-align: justify;
+          word-spacing: 2px; }
+          div.container ul li div.mesaje p::first-letter {
+            font-size: 27px;
+            font-weight: 300; }

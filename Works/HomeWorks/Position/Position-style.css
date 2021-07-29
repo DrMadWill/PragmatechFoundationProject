@@ -1,0 +1,81 @@
+
+.box{
+    width: 200px;
+    height: 200px;
+}
+
+
+#frist{
+    background-color: red;
+   
+}
+
+#second {
+    background-color: green;
+    position:fixed;
+    top: 90px;
+    left: 400px;
+}
+
+#therd{
+    background-color: blue;
+}
+
+#aral{
+    height: 600px;    
+}
+
+/*  
+#second {
+    background-color: red;
+    position: static;
+    top: 15px;
+    left: 15px;
+    
+}
+*/
+
+/*
+
+#second {
+    background-color: green;
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
+*/
+
+/*
+#second {
+    background-color: green;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+*/
+
+/*
+
+#second {
+    background-color: green;
+    position: sticky;
+    top: 30px;
+    left: 30px;
+}
+
+*/
+
+/*
+
+#second {
+    background-color: green;
+    position:fixed;
+    top: 90px;
+    left: 400px;
+}
+
+
+*/
+
+

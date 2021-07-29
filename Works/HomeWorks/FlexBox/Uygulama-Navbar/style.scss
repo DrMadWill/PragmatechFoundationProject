@@ -1,0 +1,105 @@
+html{
+    font-size: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color: goldenrod;
+    
+        ul{
+            
+            margin-left: auto;
+            list-style: none;
+            flex-basis:50rem;
+            margin-left: auto;
+            
+            @media screen and (max-width:992px){
+                
+                &{
+                    flex-basis: 0;
+                    flex: 1;
+                }
+                
+            }
+            
+            
+            display: flex;
+            
+            @media screen and (max-width:576px){
+                
+                
+                &{
+                  flex-direction: column;
+                    
+                    li{
+                        border: none;
+                        border-bottom:3px solid  rgb(233,184,61);
+                    }
+                    
+                }
+            }
+            
+
+            li{
+                flex: 1;
+                
+                
+                a{
+                    display:block;
+                    color: white;
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    text-align: center;
+                    padding: 2.5rem 0;
+                    font-size: 1.9rem;
+                    background-color: goldenrod;
+                    transition: background-color 0.3s linear;
+                    
+                    &:hover{
+                        background-color:rgb(233,184,61); 
+                    }
+                    
+                    
+                    
+                }
+                
+                
+        
+                
+                
+                
+            }
+         
+        
+        
+    } 
+    
+    
+
+    
+}
+
+
+
+
+
+/*a{
+    flex: 1;
+    box-sizing: border-box;
+    font-size:1.9rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 25px 0;;
+    text-align: center;
+    color: white;
+                 
+    &:hover{
+            background-color: rgb(233,184,61);
+                    }
+            }*/
