@@ -1,7 +1,7 @@
 
-<h1><strong>Salahov Nofəl</strong>--Domination of road . Mad Will</h1>
+### Salahov Nofəl
 
-<h2>Haqqımda qısa məlumat</h2>
+### Haqqımda qısa məlumat
     <ul>
         <li>
             Tədrisə başladığım tarix : 23 İyun 2021
