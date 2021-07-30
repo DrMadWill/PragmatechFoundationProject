@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Collapse&Accordion</title>
+    <style>
+
+        body{
+            background-color: #ebeaea;
+        }
+
+        i{
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body class="mx-5 my-5">
+
+    <div>
+        <p>
+            <button class="btn btn-success" data-toggle="collapse" data-target="#content">
+                TerroI
+            </button>
+            <a href="#content" class="btn btn-danger" data-toggle="collapse">Infinitis</a>
+        </p>
+
+
+
+        <div id="content" class="collapse show">
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptate odit a veniam eos similique doloremque corporis perspiciatis natus eius. Amet veritatis optio dolore repellendus tenetur dolores adipisci expedita eum.</p>
+
+        </div>
+
+    </div>
+
+
+    <br><br>
+
+    <p>
+        <button class="btn btn-secondary" data-toggle="collapse" data-target="#sart">
+            targ
+        </button>
+    </p>
+
+    <div id="sart" class="collapse">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, similique!</p>
+    </div>
+
+
+    <br><br><br>    
+
+    <div id="accordion">
+
+        <div class="card mt-1">
+            <div class="card-header">
+                <a href="#tart" class="card-link d-block" data-toggle="collapse">Lorem ipsum dolor sit amet.</a>
+            </div>
+
+            <div id="tart" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, a.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1">
+            <div class="card-header">
+                <a href="#tart1" class="card-link d-block" data-toggle="collapse">Lorem ipsum dolor sit amet.</a>
+            </div>
+
+            <div id="tart1" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, a.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-1">
+            <div class="card-header">
+                <a href="#tart2" class="card-link d-block" data-toggle="collapse">Lorem ipsum dolor sit amet.</a>
+            </div>
+
+            <div id="tart2" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, a.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br><br>
+
+    <div id="accordion-1" >
+
+        <div class="card mt-2 ">
+            <div class="card-header">
+                <a href="#tra-1" class="card-link d-block" data-toggle="collapse">
+                    item-1
+                </a>
+            </div>
+
+            <div id="tra-1" class="collapse show" data-parent="#accordion-1">
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam reprehenderit distinctio similique. Corrupti rerum cupiditate ut itaque perspiciatis, aliquid odit sapiente. Mollitia placeat pariatur sint aspernatur deserunt! Atque, repellat quas.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-header">
+                <a href="#tra-2" class="card-link d-block" data-toggle="collapse">
+                    item-2
+                </a>
+            </div>
+
+            <div id="tra-2" class="collapse" data-parent="#accordion-1">
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam reprehenderit distinctio similique. Corrupti rerum cupiditate ut itaque perspiciatis, aliquid odit sapiente. Mollitia placeat pariatur sint aspernatur deserunt! Atque, repellat quas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-header">
+                <a href="#tar-3" class="card-link d-block" data-toggle="collapse">
+                    item-3
+                </a>
+            </div>
+
+            <div id="tar-3" class="collapse" data-parent="#accordion-1">
+                <div class="card-body">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem saepe, pariatur dolor tenetur veritatis ducimus voluptas, distinctio labore dignissimos iure reprehenderit voluptate asperiores earum dolorum. Fugit omnis officia neque magnam?
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <br><br><br><br><br>
+
+
+    
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
