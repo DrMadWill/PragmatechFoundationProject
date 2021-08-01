@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    'header header header'
+    'wil wil max'
+    ;
+
+
+
+
+    /*grid-template-columns:  50%  50%;
+    grid-template-columns: 3fr 9fr;
+    grid-template-rows: 300px 200px 100px;
+    */
+}
+
+.border-1{
+    grid-area: header;
+}
+
+.border-2{
+    grid-area: wil;
+}
+
+.border-3{
+ grid-area: max;
+}
+
+
+.box{
+    padding: 20px;
+    border: 2px solid green;
+    background-color: indigo;
+    font-size:25px;
+
+
+}
