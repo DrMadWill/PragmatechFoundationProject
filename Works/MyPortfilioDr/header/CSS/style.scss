@@ -1,0 +1,42 @@
+$bgclr:#f3f3f3;
+
+header{
+    background-color: $bgclr;
+
+
+    .flex{
+        display: flex;
+
+        a{
+            text-decoration: none;
+        }
+
+        #logo{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+
+        .start{
+            align-self: center;
+        }
+
+        .end{
+            @extend .start;
+            margin-left: auto;
+            
+        }
+
+        @import "alink";
+
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+    }
+}
+

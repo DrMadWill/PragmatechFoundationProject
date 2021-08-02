@@ -1,0 +1,18 @@
+header {
+  background-color: #f3f3f3; }
+  header .flex {
+    display: flex; }
+    header .flex a {
+      text-decoration: none; }
+    header .flex #logo {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen; }
+    header .flex .start, header .flex .end {
+      align-self: center; }
+    header .flex .end {
+      margin-left: auto; }
+    header .flex ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
