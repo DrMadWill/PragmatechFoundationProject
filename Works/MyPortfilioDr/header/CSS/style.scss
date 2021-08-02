@@ -2,19 +2,19 @@ $bgclr:#f3f3f3;
 
 header{
     background-color: $bgclr;
-
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 7;
 
     .flex{
         display: flex;
-
-        a{
-            text-decoration: none;
-        }
+        
 
         #logo{
-            width: 100px;
-            height: 100px;
-            background-color: yellowgreen;
+            letter-spacing: -2px;
+            padding: 15px;
+            font-family: 'Poppins', sans-serif;
         }
 
         .start{
@@ -40,3 +40,4 @@ header{
     }
 }
 
+@import "main";

@@ -1,0 +1,17 @@
+
+
+li{
+    a{
+        text-decoration: none;
+        padding: 15px 22px ;
+        color: #575757;
+        font-family: 'Poppins', sans-serif;
+        transition: 1s;
+    }
+
+    &:hover{
+        transform: rotate(1turn);
+        transition: 1s;
+    }
+
+}
