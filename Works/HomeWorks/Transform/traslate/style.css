@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: chartreuse;
+    transition: 1s;
+}
+
+.box:hover{
+    transform: scale(0);
+    transition: 1s;
+}
