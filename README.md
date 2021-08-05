@@ -10,6 +10,9 @@
             Tədrisi başa vurduğum tarix : Davam edir
         </li>
         <li>
-            https://templatemo.com/live/templatemo_509_hydro
+            MyPortfolio design-https://templatemo.com/live/templatemo_509_hydro
+        </li>
+        <li>
+            MyPortfolio Complate Percent - 20%
         </li>
     </ul>
