@@ -1,0 +1,42 @@
+/* Footer */
+
+footer{
+    padding: 6rem 0;
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+
+}
+
+footer h4{
+    font-size: 2.4rem;
+}
+
+footer .col p{
+    text-align: center;
+    font-size: 1.9rem;
+    word-spacing: 0.5rem;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer li{
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.copyright{
+    background-color:#1a252f;
+    padding: 2.4rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-social{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 2rem;
+    
+}

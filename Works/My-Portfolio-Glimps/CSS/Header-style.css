@@ -1,0 +1,50 @@
+ /*Header*/
+header{
+    background-color: #18bc9c;
+    padding-top:calc(104px + 10rem); 
+    padding-bottom: 104px;
+    text-align: center;
+}
+
+#prof-img{
+    
+}
+
+header h1 {
+    color: #fff;
+    font-size: 7.6rem;
+}
+
+.star-light{
+    border: none;
+    border-top: 0.4rem solid #fff;
+    max-width:25rem; 
+    margin: 1.5rem auto;
+    overflow: visible;
+    height: 0;
+}
+
+.star-light::after{
+    content: "\f005";
+	font-family: "Font Awesome 5 Free";
+    color: #fff;
+    font-weight: 900;
+    font-size: 3.2rem;
+    
+    position: relative;
+    top: -2.6rem;
+    background-color:#18bc9c;
+    padding: 0 1rem;
+    
+    
+}
+
+
+
+header h2{
+    color: #fff;
+    font-size:2.8rem ;
+    font-family: ;
+    font-weight: 500;
+}
+

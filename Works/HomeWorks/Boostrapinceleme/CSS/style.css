@@ -1,4 +1,14 @@
 
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.item{
+    padding: 15px 0;
+    background-color: yellowgreen;
+}
 
 /* Container Risponsiv */
  
@@ -21,9 +31,7 @@
         margin: 0 auto;
     }
 
-    .item{
-        background-color: rgba(14, 100, 33, 0.466);
-    }
+ 
 }
 
 @media screen and (max-width:768px){
@@ -32,9 +40,6 @@
         margin: 0 auto;
     }
 
-    .item{
-        background-color: rgba(100, 70, 14, 0.466);
-    }
 }
 
 

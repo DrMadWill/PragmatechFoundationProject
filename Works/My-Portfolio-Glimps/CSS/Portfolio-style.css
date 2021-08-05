@@ -1,0 +1,78 @@
+ /*Portfolio*/
+
+#portfolio{
+}
+
+
+#portfolio h2{
+    color:#2c5e50 ;
+    font-size: 4.8rem;
+    
+}
+
+
+.star-dark{
+    border: none;
+    border-top: 0.4rem solid #2c5e50;
+    max-width:25rem; 
+    margin: 1.5rem auto;
+    overflow: visible;
+    height: 0;
+    margin-bottom: 1.6rem;
+}
+
+.star-dark::after{
+    content: "\f005";
+	font-family: "Font Awesome 5 Free";
+    color:#2c5e50;
+    font-weight: 900;
+    font-size: 3.2rem;
+    
+    position: relative;
+    top: -2.6rem;
+    background-color:#fff;
+    padding: 0 1rem;
+    
+}
+
+
+.portfolio-itme{
+    position: relative;
+    
+}
+
+.portfolio-itme img{
+    display: block;
+}
+
+.img-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    background-color:#18bc9c;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.img-overlay .icon{
+    
+    color:rgba(256,256,256,0.8) ;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.portfolio-itme:hover .img-overlay{
+    
+    opacity: 0.7
+}
+
+    
+

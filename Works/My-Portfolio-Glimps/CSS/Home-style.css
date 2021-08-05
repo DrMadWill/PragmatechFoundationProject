@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+html{
+    font-size:10px;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+section{
+    padding: 10rem 0;
+    text-align: center;
+}
+
+
+
+.btn{
+    margin-top: 4rem;
+    border-radius: 0.5rem;
+    font-weight: 400;
+    border:2px solid transparent;
+    
+    cursor: pointer;
+    outline: none;
+    
+    transition: all 0.5s ease;
+}
+
+.col{
+    float: left;
+    width: 33.333%;
+    padding: 1rem;
+}
+
+
+.continer{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+@media screen and (max-width:1200px){
+    html{
+    font-size:9px;
+    }
+    
+}
+
+@media screen and (max-width:992px){
+    
+    html{
+    font-size:8px;
+    }
+    
+}
+
+@media screen and (max-width:768px){
+    
+    html{
+    font-size:7px;
+    }
+    
+    .col{
+        
+        width:50%;
+    }
+    
+    
+}
+
+@media screen and (max-width:576px){
+    .continer{
+    width: 100%;
+    }
+    
+    html{
+    font-size:6px;
+    }
+    
+    .col{
+        width:100%;
+    }
+    
+}
+
+
+
+
+
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.img-pof{
+    max-width: 100%;
+    height: auto;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
