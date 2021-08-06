@@ -3,7 +3,7 @@ html{
     font-size: 10px;
     transition: all 0.5s;
 }
- 
+  
 
 @media (max-width:576px) {
     html{
@@ -33,7 +33,7 @@ body{
 
     header nav{
         justify-content:space-between;
-        
+        position: relative;
     }
 
 
@@ -48,30 +48,62 @@ body{
 
 /* navbar - logo */
 
+    
 
-    nav div #logo{
+    nav div #logo a{
+        color: black;
         padding:1.5rem;
         letter-spacing: -1px;
         transform:translateY(5%) ;
+        font-weight: 400;
     }
 
-    nav div #logo i{
-        justify-content: space-between;
+    nav div #logo a:hover{
+        color: black;
     }
-
-    nav #logo h4{
+    
+    nav #logo a h4{
         font-size: 2rem;
         font-family:'Poppins', sans-serif;
+    }
+
+    @media (max-width:768px) {
+        #logo a h4{
+            font-weight: 560;
+        }
     }
 
     @media (min-width:768px) {
 
         #logo{
+            
             margin-left: -1.5rem;
             transition: all 0.5s ease-in;
         }
         
     }
+/* Icon */
+
+    #bar-icon{
+        display:none;
+        position: absolute;
+        top: -0.25rem;
+        right: 0.5rem;
+        font-size: 2rem;
+
+    }
+    #bar-icon a{
+        color: black;
+    }
+
+    @media (max-width:768px) {
+        #bar-icon{
+            display: inline-block;
+        }
+    }
+
+
+
 
 /* navbar -  ul */
 
@@ -79,14 +111,14 @@ body{
     .container  ul{
         list-style: none;
         margin: 0;
-        
+        padding: 0px;
     }
     
 
     nav div ul li a, nav ul:last-child li a{
         font-size: 1.4rem;
         font-family:'Poppins', sans-serif;
-        font-weight: 500;
+        font-weight: 600;
     } 
     
 
@@ -98,13 +130,13 @@ body{
         width: 100%;
         height: 100%;
         color:rgba(63, 59, 59,0.83);
-        
+        transition: all 0.3s ease-in;
     }
 
     nav a:hover{
         text-decoration: none;
         color: rgba(180, 39, 39, 0.856);
-        
+        transition: all 0.3s ease-in;
     }
 
 
@@ -116,19 +148,14 @@ body{
     }
     
 
-    @media (min-width:768px) and (max-width:992px) {
+    @media (max-width:1170px) {
         nav div ul li:first-child{
-            padding: 0 0 0 3rem;
+            padding: 0rem;
             transition: all 0.5s ease-in;
         }
     }
 
-    @media (max-width:768px){
-        nav div ul li:first-child{
-            padding: 0;
-            transition: all 0.5s ease-in;
-        }
-    }
+    
 
     
     nav div ul li a{
@@ -145,11 +172,7 @@ body{
 
     
 
-    @media (min-width:768px) and (max-width:992px) {
-        nav div ul li:first-child a{
-            padding-left: 0;
-        }
-    }
+    
 
     
 
