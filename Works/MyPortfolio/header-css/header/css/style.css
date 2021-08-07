@@ -1,3 +1,10 @@
+:root{
+    --first-clr:#f1f1f1;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+}
+
 
 html{
     font-size: 10px;
@@ -12,7 +19,7 @@ html{
     }
 }
 
- 
+  
 body{
     margin: 0;
     padding: 0;
@@ -23,47 +30,63 @@ body{
 
 
     header {
-    background-color: #f1f1f1;
+    background-color: var(--first-clr);
     box-sizing: border-box;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position:sticky;
     top: 0;
     z-index: 7;
     }
 
-    header nav{
-        justify-content:space-between;
-        position: relative;
-    }
+    
 
 
-/* container */
+/* nav-container */
 
     .container{
         padding: 0 !important;
         box-sizing: border-box;
     }
 
+    header nav,nav #nav-right{
+        justify-content:space-between;
+        position: relative;
+    }
 
+    
+    
+    
+    @media (max-width:768px) {
+        header nav, header nav div,header nav div ul{
+            flex-direction: column;
+         
+        }
+
+        header nav div ul li, header nav #share{
+           align-self: center;
+            
+        }
+    
+    }
+    
 
 /* navbar - logo */
 
     
 
     nav div #logo a{
-        color: black;
+        color:var(--trid-clr);
         padding:1.5rem;
         letter-spacing: -1px;
-        transform:translateY(5%) ;
         font-weight: 400;
     }
 
     nav div #logo a:hover{
-        color: black;
+        color:var(--trid-clr);
     }
     
     nav #logo a h4{
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-family:'Poppins', sans-serif;
     }
 
@@ -93,7 +116,7 @@ body{
 
     }
     #bar-icon a{
-        color: black;
+        color:var(--trid-clr);
     }
 
     @media (max-width:768px) {
@@ -114,12 +137,6 @@ body{
         padding: 0px;
     }
     
-
-    nav div ul li a, nav ul:last-child li a{
-        font-size: 1.4rem;
-        font-family:'Poppins', sans-serif;
-        font-weight: 600;
-    } 
     
 
 /* links */
@@ -129,15 +146,22 @@ body{
         display: inline-block;
         width: 100%;
         height: 100%;
-        color:rgba(63, 59, 59,0.83);
-        transition: all 0.3s ease-in;
+        color:var(--fourth-clr);
+        transition: all 0.3s;
     }
 
     nav a:hover{
         text-decoration: none;
-        color: rgba(180, 39, 39, 0.856);
-        transition: all 0.3s ease-in;
+        color: var(--second-clr);
+        transition: all 0.3s;
     }
+
+    nav #nav-right ul li a, nav #share li a{
+        font-size: 1.4rem;
+        font-family:'Poppins', sans-serif;
+        font-weight: 600;
+        align-items: center;
+    } 
 
 
 /* navbar - left ul */
@@ -174,8 +198,6 @@ body{
 
     
 
-    
-
 
 /* navbar - right ul(share) */
 
@@ -185,16 +207,3 @@ body{
         font-size: 1.6rem;
     }
 
-
-
-
-
-
-/* main */
-
-
-    main {
-    height: 80rem;
-    width: 10rem;
-    background-color: yellowgreen; 
-    }

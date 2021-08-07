@@ -1,0 +1,10 @@
+:root{
+    --col:green;
+}
+
+
+
+div{
+    height: 100vh;
+    background-color:var(--tas) ;
+}

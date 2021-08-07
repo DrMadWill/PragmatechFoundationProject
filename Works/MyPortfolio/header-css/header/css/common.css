@@ -1,31 +1,76 @@
-.flex{
+:root{
+    --first-clr:#f1f1f1;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+}
+
+
+/* leyout */
+
+.pr-row{
     display:flex;
     
 }
 
 
-nav .flex{
-    justify-content: center;
-    align-items: center;
+.pr-col-1{
+    width:calc((100%/12)*1) ;
+}
+
+.pr-col-2{
+    width:calc((100%/12)*1) ;
+}
+
+.pr-col-3{
+    width:calc((100%/12)*3) ;
+}
+
+.pr-col-4{
+    width:calc((100%/12)*4) ;
+}
+
+.pr-col-5{
+    width:calc((100%/12)*5) ;
+}
+
+.pr-col-6{
+    width:calc((100%/12)*6) ;
+}
+
+.pr-col-7{
+    width:calc((100%/12)*7) ;
+}
+
+.pr-col-8{
+    width:calc((100%/12)*8) ;
+}
+
+.pr-col-9{
+    width:calc((100%/12)*9) ;
+}
+
+.pr-col-10{
+    width:calc((100%/12)*10) ;
+}
+.pr-col-11{
+    width:calc((100%/12)*11) ;
+}
+.pr-col-12{
+    width:calc((100%/12)*12) ;
+}
+/* image */
+
+.pr-img-fluid{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* button */
+
+.pr-btn{
+    
 }
 
 
- @media (max-width:768px) {
-    header nav, header nav div,header nav div ul{
-        flex-direction: column;
-     
-    }
 
-    
-
-    header nav div ul li{
-       align-self: center;
-        
-    }
-
-    header nav div div{
-        align-self: flex-start;
-        
-    }
-
- }
