@@ -1,0 +1,83 @@
+
+:root{
+    --first-clr:#f1f1f1;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+
+    /* gradtiet */
+    --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
+
+    /* font  */
+    --ffamily:'Poppins', sans-serif;
+}
+
+/* leyout */
+
+.pr-row{
+    display:flex;
+    
+}
+
+
+.pr-col-1{
+    width:calc((100%/12)*1) ;
+}
+
+.pr-col-2{
+    width:calc((100%/12)*1) ;
+}
+
+.pr-col-3{
+    width:calc((100%/12)*3) ;
+}
+
+.pr-col-4{
+    width:calc((100%/12)*4) ;
+}
+
+.pr-col-5{
+    width:calc((100%/12)*5) ;
+}
+
+.pr-col-6{
+    width:calc((100%/12)*6) ;
+}
+
+.pr-col-7{
+    width:calc((100%/12)*7) ;
+}
+
+.pr-col-8{
+    width:calc((100%/12)*8) ;
+}
+
+.pr-col-9{
+    width:calc((100%/12)*9) ;
+}
+
+.pr-col-10{
+    width:calc((100%/12)*10) ;
+}
+.pr-col-11{
+    width:calc((100%/12)*11) ;
+}
+.pr-col-12{
+    width:calc((100%/12)*12) ;
+}
+
+/* box sizing */
+
+.pr-box-sizing{
+    box-sizing: border-box;
+}
+
+
+/* Font Family */
+
+.pr-font-family{
+    font-family: var(--ffamily);
+}
+
+
+

@@ -1,0 +1,159 @@
+
+:root{
+    --first-clr:white;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+
+    /* gradtiet */
+    --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
+
+    /* font  */
+    --ffamily:'Poppins', sans-serif;
+}
+
+
+
+#home{
+    height:550px;
+    align-items: center;
+    background-image:linear-gradient(60deg, rgba(60,173,208,0.7) 25%, rgba(46,195,75,0.7) 56%, rgba(0,181,23,0.7) 83%), url(../../img/bg-img.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: ;
+}
+
+/* home-left */
+
+    #home div div:first-child h1{
+        line-height: 6rem; 
+        font-family:var(--ffamily) ;
+        font-weight: 300;
+        font-size: 4.4rem; 
+        font-weight: 400;
+        letter-spacing: -1px;
+        padding:1.5rem 0;
+        color: var(--first-clr);
+    } 
+
+    .home-info{
+        margin-top: 5rem;
+        padding: 0 1.7rem;
+    }
+
+/* main-right */
+
+#home{
+    padding: 80px 0;
+}
+
+#home .card-home{
+    background-color: black;
+    height: 312px;
+    width: 555px;
+}
+
+.card-home{
+    padding: 0 1.7rem;
+}
+
+
+
+
+/* about */
+
+#about{
+    padding:80px 0;
+    background-color: var(--first-clr);
+    
+}
+
+#about div div h2{
+    font-size: 28px;
+    font-weight: 400;
+    color: #393939;;
+}
+
+
+#about .about-text{
+    font-size: 15px;
+    font-weight: 460;
+
+    color: #757575;
+    line-height: 25px;
+}
+
+#about button{
+    border: 0;
+    background-color: #d9d9d9;;
+    color: blue;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#about .pr-col-3{
+    padding: 25px 20px 0 20px;
+}
+
+#about .pr-col-3 .pr-row{
+    justify-content: space-between;
+    margin: 7px 0;
+    
+}
+
+#about .pr-col-3 .pr-row span{
+    font-size: 14px;
+
+}
+
+.pr-border{
+    height: 3px;
+    background-color: black;
+    margin-bottom: 28px;
+
+}
+
+.web-design{
+    width: 55%;
+}
+
+.css-design{
+    width: 85%;
+}
+
+.html-design{
+   width:75% ; 
+}
+
+.scss-design{
+    width: 90%;
+}
+
+
+#about-image{
+    width: 360px;
+    height: 360px;
+    background-color: black;
+    margin: 0 20px;
+}
+
+
+/* MyProject */
+
+#myproject{
+    background-color: #f3f3f3;
+    padding: 80px;
+}
+
+/* Card */
+
+.pr-card{
+    width: 555px; 
+    height: 410px;
+}
