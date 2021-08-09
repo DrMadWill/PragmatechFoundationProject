@@ -13,6 +13,6 @@
             MyPortfolio design-https://templatemo.com/live/templatemo_509_hydro
         </li>
         <li>
-            MyPortfolio Complate Percent - 20%
+            MyPortfolio HTML and CSS Complate Percent - 80%
         </li>
     </ul>
