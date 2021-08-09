@@ -1,0 +1,39 @@
+footer{
+    background-image:  linear-gradient(90deg, rgba(57,59,60,1) 25%, rgba(32,41,34,1) 56%, rgba(0,0,0,1) 83%);;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+
+footer{
+    color: white;
+}
+
+footer h4{
+    font-size: 29px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+footer .footer-text{
+    font-size: 15px;
+    font-weight: 300;
+    color: #f4f4f4;
+    line-height: 25px;
+}
+
+footer .pr-col-6:first-child{
+    padding-right: 70px;
+}
+
+footer .pr-col-6:last-child{
+    padding-left: 80px;
+}
+
+.footer-contact{
+    border-top: 0.5px solid rgba(207, 199, 199, 0.178);
+    margin-top: 70px;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+

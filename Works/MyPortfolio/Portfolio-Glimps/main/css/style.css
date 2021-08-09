@@ -22,7 +22,7 @@
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    color: ;
+    
 }
 
 /* home-left */
@@ -144,10 +144,14 @@
 }
 
 
+
+
+
+
 /* MyProject */
 
 #myproject{
-    background-color: #f3f3f3;
+    background-color: #f4f4f4;
     padding: 80px;
 }
 
