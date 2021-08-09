@@ -37,3 +37,33 @@ footer .pr-col-6:last-child{
     padding-left: 15px;
 }
 
+#share-footer{
+    padding-right: 80px;
+}
+
+#share-footer li a{
+    font-size: 16px;
+    margin-right: 15px;
+    font-family:'Poppins', sans-serif;
+    font-weight: 600;
+    align-items: center;
+} 
+
+
+footer a{
+    
+    
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color: var(--second-clr);
+    transition: all 0.3s;
+}
+
