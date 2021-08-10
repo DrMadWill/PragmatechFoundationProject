@@ -1,17 +1,32 @@
-
 :root{
-    --first-clr:white;
+
+    /* color */
+    --first-clr:#f1f1f1;
     --second-clr:rgba(221, 25, 25, 0.856);
     --trid-clr:#000;
     --fourth-clr:rgba(63, 59, 59,0.83);
 
+
+    /* body - text - p*/
+    --btext-clr:#757575;
+
+
+    /* title - text - h2*/
+    --ttext-clr: #393939;
+
+
+    /* Shadow color */
+    --shadow:rgba(78, 78, 78, 0.342);
+
     /* gradtiet */
     --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
 
-    /* font  */
-    --ffamily:'Poppins', sans-serif;
-}
 
+    /* Font Family */
+    --ffamily:'Poppins', sans-serif;
+
+
+}
 
 
 #home{
@@ -29,7 +44,6 @@
 
     #home div div:first-child h1{
         line-height: 6rem; 
-        font-family:var(--ffamily) ;
         font-weight: 300;
         font-size: 4.4rem; 
         font-weight: 400;
@@ -80,7 +94,6 @@
 #about .about-text{
     font-size: 15px;
     font-weight: 460;
-
     color: #757575;
     line-height: 25px;
 }

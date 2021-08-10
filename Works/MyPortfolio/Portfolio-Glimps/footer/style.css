@@ -1,3 +1,36 @@
+
+:root{
+
+    /* color */
+    --first-clr:#f1f1f1;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+
+
+    /* body - text - p*/
+    --btext-clr:#757575;
+
+
+    /* title - text - h2*/
+    --ttext-clr: #393939;
+
+
+    /* Shadow color */
+    --shadow:rgba(78, 78, 78, 0.342);
+
+    /* gradtiet */
+    --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
+
+
+    /* Font Family */
+    --ffamily:'Poppins', sans-serif;
+
+    /*  */
+
+
+}
+
 footer{
     background-image:  linear-gradient(90deg, rgba(57,59,60,1) 25%, rgba(32,41,34,1) 56%, rgba(0,0,0,1) 83%);;
     padding-top: 80px;
@@ -34,36 +67,14 @@ footer .pr-col-6:last-child{
     border-top: 0.5px solid rgba(207, 199, 199, 0.178);
     margin-top: 70px;
     padding-top: 50px;
-    padding-left: 15px;
+    padding-right: 65px;
 }
 
-#share-footer{
+footer .pr-share{
     padding-right: 80px;
+    color:var(--first-clr);
 }
 
-#share-footer li a{
-    font-size: 16px;
-    margin-right: 15px;
-    font-family:'Poppins', sans-serif;
-    font-weight: 600;
-    align-items: center;
-} 
 
 
-footer a{
-    
-    
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    color: #f4f4f4;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-footer a:hover{
-    text-decoration: none;
-    color: var(--second-clr);
-    transition: all 0.3s;
-}
 

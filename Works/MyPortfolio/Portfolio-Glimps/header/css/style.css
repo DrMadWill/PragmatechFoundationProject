@@ -1,48 +1,46 @@
 
 :root{
+
+    /* color */
     --first-clr:#f1f1f1;
     --second-clr:rgba(221, 25, 25, 0.856);
     --trid-clr:#000;
     --fourth-clr:rgba(63, 59, 59,0.83);
 
+
+    /* body - text - p*/
+    --btext-clr:#757575;
+
+
+    /* title - text - h2*/
+    --ttext-clr: #393939;
+
+
+    /* Shadow color */
+    --shadow:rgba(78, 78, 78, 0.342);
+
     /* gradtiet */
     --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
 
-    /* font  */
+
+    /* Font Family */
     --ffamily:'Poppins', sans-serif;
-}
 
 
-html{
-    font-size: 10px;
-    transition: all 0.5s;
-}
-  
-
-@media (max-width:576px) {
-    html{
-        font-size: 9.5px;
-        transition: all 0.5s;
-    }
 }
 
-  
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Header-Başlıq */ 
 
 
     header {
         background-color: var(--first-clr);
-        box-sizing: border-box;
+        
         padding: 0.7rem 0;
         position:sticky;
         top: 0;
         z-index: 7;
+        box-shadow:0 3px 7px var(--shadow);
     }
 
     
@@ -90,11 +88,12 @@ body{
 
     nav div #logo a:hover{
         color:var(--trid-clr);
+        text-decoration: none;
     }
     
     nav #logo a h4{
         font-size: 2.4rem;
-        font-family:ver(--ffamily);
+        margin: 0;
     }
 
     @media (max-width:768px) {
@@ -112,6 +111,8 @@ body{
         }
         
     }
+
+
 /* Icon */
 
     #bar-icon{
@@ -145,32 +146,6 @@ body{
     }
     
     
-
-/* links */
-
-
-    nav a{
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        color:var(--fourth-clr);
-        text-decoration: none;
-        transition: all 0.3s;
-    }
-
-    nav a:hover{
-        text-decoration: none;
-        color: var(--second-clr);
-        transition: all 0.3s;
-    }
-
-    nav #nav-right ul li a, nav #share li a{
-        font-size: 1.4rem;
-        font-family:'Poppins', sans-serif;
-        font-weight: 600;
-        align-items: center;
-    } 
-
 
 /* navbar - left ul */
 
@@ -210,7 +185,7 @@ body{
 /* navbar - right ul(share) */
 
 
-    nav #share li a{
+    .pr-share li a{
         padding: 1.3rem 1.2rem;
         font-size: 1.6rem;
     }
