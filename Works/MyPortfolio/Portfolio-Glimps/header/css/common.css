@@ -113,7 +113,6 @@ html{
     width: 100%;
     height: 100%;
     font-size: 1.4rem;
-
     color:var(--fourth-clr);
     text-decoration: none;
     transition: all 0.3s;
@@ -173,16 +172,17 @@ nav #nav-right ul li a, nav #share li a{
 
 /*  */
 
+.pr-section-title{
+    margin-bottom: 25px;
+}
+
 .pr-carusel-btn{
     border: 0;
     background-color: #d9d9d9;;
-    
     border-radius: 100%;
     width: 1px;
     height: 13px;
     margin-right: 5px;
-    margin-bottom: 25px;
-    
 }
 
 .pr-title-name{
