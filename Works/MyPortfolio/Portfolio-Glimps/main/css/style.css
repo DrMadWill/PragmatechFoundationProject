@@ -93,7 +93,7 @@
 
 #about .about-text{
     font-size: 15px;
-    font-weight: 460;
+    font-weight: 300;
     color: #757575;
     line-height: 25px;
 }
@@ -164,13 +164,99 @@
     padding: 80px;
 }
 
+
+
 /* Card */
 
+.pr-project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "pro-1 pro-2"
+      "pro-3 pro-4";
+    width:100%;
+    
+  }
+  
+  .pro-1 { grid-area: pro-1; 
+    
+}
+  
+  .pro-2 { grid-area: pro-2; 
+    
+}
+  
+  .pro-3 { grid-area: pro-3; 
+    
+}
+  
+  .pro-4 { grid-area: pro-4; 
+    
+}
+  
+
 .pr-card{
-    width: 555px; 
-    height: 410px;
+    height: 360px;
+    background-color:white;
+    border-radius: 5px;
 }
 
+.pr-card-head{
+    width: 360px;
+    background-color: black;
+    border-top-left-radius:5px ;
+    border-bottom-left-radius: 5px;
+}
+
+.pr-card-body{
+    width: 100%;
+    padding:50px 20px;
+
+}
+
+.pr-card-time{
+    font-weight: 600;
+    color: var(--second-clr);
+    margin: 15px 0;
+}
+
+
+.pr-card-text{
+    font-size: 15px;
+    font-weight: 300;
+    color: #757575;
+    line-height: 25px;
+    margin-top: 15px;
+    
+
+}
+
+.pr-card-btn{
+    margin-top: 25px;
+    padding: 15px 30px;
+    font-size: 14px;
+    border-radius: 100px;
+    border: 0;
+    background-image: #f3f3f3; ;
+    color: var(--trid-clr);
+    transition: all 0.3s linear ;
+}
+
+.pr-card-btn:hover{
+    background-image: var(--gradient-clr);
+    color: var(--first-clr);
+    transition: all 0.3s linear ;
+}
+
+
+
+#myproject .pr-link{
+    font-size: 21px;
+    letter-spacing: -1px;
+}
 
 
 /* Contact  */
