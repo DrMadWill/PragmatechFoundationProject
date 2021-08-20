@@ -1,5 +1,5 @@
 function mad(){
-    var dr=document.getElementsByClassName('dr-box')
+    let dr=document.getElementsByClassName('dr-box')
     
 
     let a=0;
@@ -11,18 +11,13 @@ function mad(){
         return a;
     }
     dr[a].style.visibility = "visible";
-    
 
 }
 
 
-
-
 /*
-let a=5
-
 for (i=0;i=a;i++){
-   console.log(i);   
+   div ementinin təkrak funksiyasi  
 }
 */ 
 
