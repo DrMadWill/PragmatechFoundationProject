@@ -12,4 +12,8 @@
 
 - sayilan clickleri  a-ya bərabər et
 
-- 
+- ```
+        for (i=0;i=a;i++){
+        div ementinin təkrak funksiyasi  
+        }
+```
