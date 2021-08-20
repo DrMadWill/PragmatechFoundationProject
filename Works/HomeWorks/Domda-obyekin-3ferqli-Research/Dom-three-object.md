@@ -1,14 +1,14 @@
 # HTML DOM Reference three method research in object
 
- 1. **  The HTML DOM Attr Object**
- 2. ** Window Object **
- 3. ** The Document Object **
+ 1. ##  The HTML DOM Attr Object
+ 2. ##  Window Object 
+ 3. ##  The Document Object 
 
 ## The HTML DOM Attr Object
  1. #### document.getElementById("") Method 
-  1. Return funcition.Dəyər verilmədikdə > null qayatarırı;
-  2. HTML təqlərindən uyğun id-li _elmet_-i çağırmaq üçün istifadə olunur;
-  3. ```<!DOCTYPE html>
+  - Return funcition.Dəyər verilmədikdə > null qayatarırı;
+  - HTML təqlərindən uyğun id-li _elmet_-i çağırmaq üçün istifadə olunur;
+  -  ```<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -44,9 +44,9 @@
         </html>    
      ```
  2. #### document.getElementsByClassName() Method 
-    1. Return funcition.Dəyər object-dir.
-    2. HTML təqlərindən uyğun class-lı _elmetləri_ çağırmaq üçün istifadə olunur.
-    3. ```
+    - Return funcition.Dəyər object-dir.
+    - HTML təqlərindən uyğun class-lı _elmetləri_ çağırmaq üçün istifadə olunur.
+    - ```
             <button onclick="mad()" class="btn btn-primary">Click me</button>
 
             <div class="will">
@@ -70,9 +70,9 @@
             </script>
         ```
  3. ####  getElementsByTagName() Method
-    1. Return funcition.Dəyər object-dir.
-    2. HTML təqlərindən uyğun təqlərə müraciyyət etmək üçün isitfadə olnur.
-    3. ```
+    - Return funcition.Dəyər object-dir.
+    - HTML təqlərindən uyğun təqlərə müraciyyət etmək üçün isitfadə olnur.
+    - ```
             <div style="background-color: indigo;
                         padding: 60px;
                         margin: 60px;">Coffee</div>
