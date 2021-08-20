@@ -5,10 +5,11 @@
  3. ##  The Document Object 
 
 ## The HTML DOM Attr Object
+
  1. #### document.getElementById("") Method 
-  - Return funcition.Dəyər verilmədikdə > null qayatarırı;
-  - HTML təqlərindən uyğun id-li _elmet_-i çağırmaq üçün istifadə olunur;
-  -  ```<!DOCTYPE html>
+    - Return funcition.Dəyər verilmədikdə > null qayatarırı;
+    - HTML təqlərindən uyğun id-li _elmet_-i çağırmaq üçün istifadə olunur;
+    -  ```<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
