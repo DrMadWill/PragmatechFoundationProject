@@ -75,7 +75,7 @@
 // ** Aşağıda verilen doğum yılına göre yaş hesaplayınız.
 
 const yearOfBirth = 1986;
-
+ 
 let c = 2021 - yearOfBirth;
 
 console.log(c,'tebrikler')
