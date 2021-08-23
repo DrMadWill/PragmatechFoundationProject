@@ -14,7 +14,7 @@ switch(category){
        console.log('you are otaku');
     break;   
 
-    default:
+    default://hec bir deyer karsilamadikda
        console.log('yanlış kategori');
 }
 
