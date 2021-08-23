@@ -21,7 +21,13 @@ console.log("body-hundurluk:",bodyhundur)
 let div = document.getElementById('dr-box')
 let divgenis=div.clientWidth/2
 let divhundur=div.clientHeight/2
-
 console.log("div-genislik:",divgenis)
 console.log("div-hundurluk:",divhundur)
 
+let elmtGenis = bodygenis-divgenis
+let elmtHundur = bodyhundur - divhundur
+
+console.log("verilmeli-genislik:",elmtGenis)
+console.log("verilmeli-hundurluk:",elmtHundur)
+// verilmeli hündürlük və genişlik marginlə versek olarmı
+// body height niyə mənfi alıram 
