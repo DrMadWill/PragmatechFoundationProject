@@ -14,7 +14,8 @@ let user4 = new user(4,'Ferid','Priyev');
 let user5 = new user(5,'Elnar','Memmedov')
 
 console.log(user1.ad)// innerHtml burada
-
+let users;
+users = [user1,user2,user3,user4,user5]
 
 
 
@@ -22,32 +23,20 @@ let istead = window.prompt('Istenen ad')
 
 console.log(istead)
 
-if (istead === user1.ad){
-
-    let cardtitle = document.querySelector('.card-title')
-cardtitle.innerHTML=`Ad:${user1.ad} | Soyad:${user1.soyad}    | ID:${user1.id} `
-
-} else if (istead === user2.ad){
-
-    let cardtitle = document.querySelector('.card-title')
-cardtitle.innerHTML=`Ad:${user2.ad} |  Soyad:${user2.soyad}   |  ID:${user2.id} `
+for (let i=0 ; i<=users.length;i++){
+    let a
+    a= users[i];
     
-}else if (istead === user3.ad){
+    if (istead === a.ad){
 
-    let cardtitle = document.querySelector('.card-title')
-cardtitle.innerHTML=`Ad:${user3.ad} | Soyad:${user3.soyad} |ID:${user3.id} `
+        let cardtitle = document.querySelector('.card-title')
+    cardtitle.innerHTML=`Ad:${a.ad} | Soyad:${a.soyad}    | ID:${a.id} `
 
-}else if (istead === user4.ad){
-    let cardtitle = document.querySelector('.card-title')
-cardtitle.innerHTML=`Ad:${user4.ad} | Soyad:${user4.soyad} |ID:${user4.id} `
-}else if (istead === user5.ad){
-    let cardtitle = document.querySelector('.card-title')
-cardtitle.innerHTML=`Ad:${user5.ad} | Soyad:${user5.soyad} |ID:${user5.id} `
+    }
+    
+
 }
 
-
-// let cardtitle = document.querySelector('.card-title')
-// cardtitle.innerHTML='Nofel' 
 
 let cardtext = document.querySelector('.card-text')
 cardtext.innerHTML='Learn,Learn,Learn infertility--(DR-MadWill)'
