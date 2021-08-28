@@ -151,7 +151,7 @@ nav #nav-right ul li a, nav #share li a{
     justify-content: center;
 }
 
-/* Justify Content */
+/* Justify Content Space*/
 
 .pr-justify-content-between{
     justify-content: space-between;
@@ -169,6 +169,8 @@ nav #nav-right ul li a, nav #share li a{
 .pr-flex-direction-column{
     flex-direction: column;
 }
+
+
 
 /*  */
 

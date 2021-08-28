@@ -15,8 +15,8 @@ function iconclick(){
         console.log(a);
     }else{
         a=true;
-        d.style.display='inline-block'
-        c.style.display='inline-block'
+        d.style.display='flex'
+        c.style.display='flex'
         console.log("twoe click")
 
     }
