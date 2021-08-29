@@ -44,6 +44,10 @@
     display: none;
 }
 
+.pr-responsive-telefon{
+    display: none;
+}
+
 @media (max-width:992px) {
 
     #home .pr-row{
@@ -209,6 +213,10 @@
     #about .pr-col-5,#about .pr-col-3,
     #about .pr-col-4, #about .pr-responsive{
         display: none;
+    }
+
+    #about .pr-responsive-telefon{
+        display: flex;
     }
 
     #about .pr-flex-direction-column{
