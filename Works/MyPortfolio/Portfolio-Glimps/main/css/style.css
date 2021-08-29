@@ -189,9 +189,42 @@
         padding: 1.2rem;
     }
 
+    #about .container{
+        flex-direction: column;
+    }
+
+    #about  .about-image{
+        width: 720px; 
+        height: 716px;
+        
+    }
+
+    #about .pr-col-12{
+        justify-content: center;
+    }
 
 }
 
+@media (max-width:768px){
+    #about .pr-col-5,#about .pr-col-3,
+    #about .pr-col-4, #about .pr-responsive{
+        display: none;
+    }
+
+    #about .pr-flex-direction-column{
+        padding: 1.5rem;
+    }
+
+    #about .img-responsive{
+        width: 100%;
+        height: auto;
+    }
+
+    
+
+    
+
+}
 
 
 
