@@ -96,10 +96,20 @@
         margin: 0;
     }
 
+    #lost1{
+        align-items: center;
+    }
+
+
     @media (max-width:768px) {
         #logo a h4{
             font-weight: 560;
         }
+
+        #lost1{
+            justify-content: center;
+        }
+
     }
 
     @media (min-width:768px) {
@@ -109,6 +119,8 @@
             margin-left: -1.5rem;
             transition: all 0.5s ease-in;
         }
+
+        
         
     }
 

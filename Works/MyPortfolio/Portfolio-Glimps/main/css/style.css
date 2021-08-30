@@ -281,6 +281,7 @@
     height: 360px;
     background-color:white;
     border-radius: 5px;
+    box-shadow: 0 0 15px rgba(128, 128, 128, 0.74);
 }
 
 .pr-card-head{
