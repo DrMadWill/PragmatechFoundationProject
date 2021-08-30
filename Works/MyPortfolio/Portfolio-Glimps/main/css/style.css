@@ -291,6 +291,89 @@
     border-bottom-left-radius: 5px;
 }
 
+@media (min-width:992px) and (max-width:1200px){
+    .pr-card{
+        height: 360px;
+        width: 455px; 
+    }
+
+    .pr-card-head{
+        width: 295px;
+        height: 310px;
+        border-bottom-left-radius: 0px;
+    }
+
+    #myproject .pr-card-body{
+        padding:27px 20px;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px){
+    .pr-card{
+        height: 524px;
+        width: 345px; 
+    }
+
+    .pr-row-taplet{
+        flex-direction: column;
+    }
+    .pr-card-head{
+        width: 345px;
+        height: 450px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 5px;
+    }
+
+    #myproject .pr-card-body{
+        padding: 20px 20px 25px 20px ;
+    }
+
+    .pr-card-time{
+        margin:0 !important;
+    }
+
+
+    .pr-card-btn{
+        margin-top: 0;
+    }
+
+    .pr-card-text{
+        margin: 0;
+    }
+
+    #myproject .pr-link{
+        margin-top:0;
+    }
+
+}
+
+@media (max-width:768px){
+    
+    #myproject{
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    .pr-project-container{
+        display: none;
+    }
+
+    .pr-row-taplet{
+        flex-direction: column;
+    }
+    .pr-card{
+        width: 100%;
+
+    }
+
+    
+
+
+}
+
 .pr-card-body{
     width: 100%;
     padding:50px 20px;
