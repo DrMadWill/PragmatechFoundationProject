@@ -67,7 +67,7 @@
          
         }
 
-        header nav div ul li, header nav #share{
+        header nav div ul li, header nav .share{
            align-self: center;
             
         }
@@ -106,8 +106,11 @@
             font-weight: 560;
         }
 
+        
+
         #lost1{
             justify-content: center;
+            
         }
 
     }
@@ -120,6 +123,10 @@
             transition: all 0.5s ease-in;
         }
 
+        
+        #lost1{
+            
+        }
         
         
     }
