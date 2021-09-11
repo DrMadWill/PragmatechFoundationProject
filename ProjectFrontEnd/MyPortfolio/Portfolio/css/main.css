@@ -364,6 +364,10 @@
 
 }
 
+.pr-project-container-tel{
+    display: none;
+}
+
 @media (max-width:768px){
     
     #myproject{
@@ -386,7 +390,24 @@
 
     }
 
-    
+    /* myproject telefon veiw */
+
+    .pr-project-container-tel{
+        display: flex;
+    }
+
+    .pr-project-container-tel .pr-card{
+        width: 100%;
+        height: auto;
+        margin:0 15px ;
+    }
+
+    .pr-project-container-tel .pr-card-head{
+        height: 653px;
+        width: 100%;
+        border-top-right-radius:5px;
+        border-bottom-left-radius:0px ;
+    }
 
 
 }
