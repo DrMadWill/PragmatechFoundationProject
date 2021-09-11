@@ -52,6 +52,8 @@
 
     #home .pr-row{
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
    #home .pr-responsive{
@@ -99,7 +101,7 @@
 }
 
 
-
+/* home end */
 
 /* about */
 
@@ -234,7 +236,7 @@
 
 }
 
-
+/* about end */
 
 /* MyProject */
 
@@ -308,6 +310,16 @@
     }
 }
 
+@media (min-width:975px) and (max-width:1100px){
+
+    #myproject{
+        padding-left:0;
+        padding-right:0;
+    }
+
+}
+
+
 @media (min-width:768px) and (max-width:992px){
     .pr-card{
         height: 524px;
@@ -343,6 +355,11 @@
 
     #myproject .pr-link{
         margin-top:0;
+    }
+
+    #myproject{
+        padding-left: 0;
+        padding-right: 0;
     }
 
 }
@@ -420,6 +437,10 @@
     font-size: 21px;
     letter-spacing: -1px;
 }
+
+
+/* MyProject end */
+
 
 
 /* Contact  */
@@ -520,3 +541,5 @@ input[type="submit"]{
     margin-top: 40px;
     
 }
+
+/* Contact end   */
