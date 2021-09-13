@@ -35,9 +35,9 @@
 
     header {
         background-color: var(--first-clr);
-        
+        width: 100%;
         padding: 0.7rem 0;
-        position:sticky;
+        position:fixed;
         top: 0;
         z-index: 7;
         box-shadow:0 3px 7px var(--shadow);
@@ -124,9 +124,7 @@
         }
 
         
-        #lost1{
-            
-        }
+        
         
         
     }

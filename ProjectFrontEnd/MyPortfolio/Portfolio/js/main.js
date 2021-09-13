@@ -48,3 +48,31 @@ function will(){
 
 
 }
+
+
+
+
+const header=document.querySelector('header')
+header.style.backgroundColor='transparent'
+header.style.boxShadow='0 0 0 0 blue'
+
+window.addEventListener('scroll',()=>{
+    if (document.documentElement.scrollTop>=50){
+        header.style.backgroundColor='#f1f1f1'
+    }else{
+        header.style.backgroundColor='transparent'
+        header.style.boxShadow='0 0 0 0 blue'
+        document.querySelectorAll('.pr-link')
+    }
+})
+
+// while (2>1){
+//     l=l.offsetTop
+//     if (l==0){
+//         let t
+//         t=document.querySelector('header')
+
+//     }
+// }
+
+
