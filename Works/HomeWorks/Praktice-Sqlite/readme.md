@@ -141,4 +141,109 @@
     Paul
     sqlite>
 
+    
+    sqlite> SELECT * FROM COMPANY WHERE SALARY = 10000;
+    sqlite> SELECT * FROM COMPANY WHERE SALARY = 10000;
+    sqlite> SELECT * FROM COMPANY WHERE SALARY = 10000;
+    sqlite> SELECT * FROM COMPANY WHERE SALARY > 10000;
+    1|Paul|32|California|20000.0
+    2|Allen|25|Texas|15000.0
+    3|Teddy|23|Norway|20000.0
+    4|Mark|25|Rich-Mond |65000.0
+    5|David|27|Texas|85000.0
+    sqlite> SELECT (15 + 6) AS ADDITION
+    ...> ;
+    21
+    sqlite> SELECT count(*) as 'id' from company
+    ...> ;
+    5
+    sqlite> SELECT sum(+) as 'id' from company;
+    Error: near ")": syntax error
+    sqlite> SELECT sum() as 'id' from company;
+    Error: wrong number of arguments to function sum()
+    sqlite> SELECT sum + as 'id' from company;
+    Error: near "as": syntax error
+    sqlite> SELECT sum(*) as 'id' from company;
+    Error: wrong number of arguments to function sum()
+    sqlite> SELECT sum(*) as 'id' from company;
+    Error: wrong number of arguments to function sum()
+    sqlite> SELECT sum(+) as 'id' from company;
+    Error: near ")": syntax error
+    sqlite> SELECT count(*) as 'id' from company;
+    5
+    sqlite> slect * from aqro where money > 10;
+    Error: near "slect": syntax error
+    sqlite> select * from aqro where money > 10;
+    1|Fosetrin|Tricpella|Tarkim|25
+    3|Siperkor|Supermetrin|Koruma|12
+    4|Kimetrin|Supermetrin|Tarkim|12
+    5|Ultimatium|Supermetrin|Dva|22
+    sqlite> select * from aqro where  money > 10 and aqrocompany in (Koruma);
+    Error: no such column: Koruma
+    sqlite> select 8 from company where age in (23,25);
+    8
+    8
+    8
+    sqlite> select * from company where age in (23,25);
+    2|Allen|25|Texas|15000.0
+    3|Teddy|23|Norway|20000.0
+    4|Mark|25|Rich-Mond |65000.0
+    sqlite> udate aqro  set money=13 where id = 4;
+    Error: near "udate": syntax error
+    sqlite> update aqro  set money=13 where id = 4;
+    sqlite> select money where id = 4
+    ...> ;
+    Error: no such column: money
+    sqlite> select money from aqro where id = 4;
+    13
+    sqlite> update prodact set price=1300 where id=3;
+    sqlite> select * from prodact
+    ...> ;
+    1|Samsungs7|2000|
+    2|Ipone 7|2000|
+    3|Redme 7a|1300|
+    sqlite> insert  into prodact valuas (1,'Samsung s5',700 );
+    Error: near "valuas": syntax error
+    sqlite> insert  into prodact values (1,'Samsung s5',700 );
+    Error: table prodact has 4 columns but 3 values were supplied
+    sqlite> insert  into prodact values (1,'Samsung s5',700,'' );
+    Error: UNIQUE constraint failed: Prodact.ID
+    sqlite> insert  into prodact values (4,'Samsung s5',700,'' );
+    sqlite> insert  into prodact values (5,'Galaxy S3',400,'1.png' );
+    sqlite> select * from prodact
+    ...> ;
+    1|Samsungs7|2000|
+    2|Ipone 7|2000|
+    3|Redme 7a|1300|
+    4|Samsung s5|700|
+    5|Galaxy S3|400|1.png
+    sqlite> delete from prodact where id=5;
+    sqlite> select * from prodact
+    ...> ;
+    1|Samsungs7|2000|
+    2|Ipone 7|2000|
+    3|Redme 7a|1300|
+    4|Samsung s5|700|
+    sqlite> insert  into prodact values (5,'Galaxy S3',400,'1.png' );
+    sqlite> select * from company where age like '%2%';
+    1|Paul|32|California|20000.0
+    2|Allen|25|Texas|15000.0
+    3|Teddy|23|Norway|20000.0
+    4|Mark|25|Rich-Mond |65000.0
+    5|David|27|Texas|85000.0
+    sqlite> select * from prodact where address like '%tex%';
+    Error: no such column: address
+    sqlite> select * from prodact where name like '%al%';
+    5|Galaxy S3|400|1.png
+    sqlite> select * from company where address like '%tex%';
+    2|Allen|25|Texas|15000.0
+    5|David|27|Texas|85000.0
+    sqlite> select sum(age) as age from company;
+    132
+    sqlite> select sum(id) as id from company;
+    15
+    sqlite> select count(*) as id from company;
+    5
+    sqlite>
+
 ```
