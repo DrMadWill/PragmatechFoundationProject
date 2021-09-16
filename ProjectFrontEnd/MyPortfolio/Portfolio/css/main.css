@@ -39,7 +39,17 @@
     background-position: center;
     background-size: cover;
     
+    height: 100vh;
+    
 }
+
+#home{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
 .pr-responsive{
     display: none;
 }
@@ -86,9 +96,6 @@
 
 /* home-right */
 
-#home{
-    padding: 80px 0;
-}
 
 #home .card-home{
     background-color: black;

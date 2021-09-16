@@ -2,9 +2,8 @@ from flask import Flask,redirect,url_for,render_template,request
 
 app=Flask(__name__)
 @app.route('/')
-def home():
+def main():
     return render_template('include/maxwill.html')
-
 
 
 @app.route('/project')

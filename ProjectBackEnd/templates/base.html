@@ -38,8 +38,7 @@
 <body onresize="will()" >
 
 
-    
-    
+
     <header id="header">
 
         <nav class="container pr-row">
@@ -59,19 +58,19 @@
                 
                 <ul id="lost" class="pr-row">
                     <li>
-                        <a href="#home" class="pr-link pr-row header-link">Home</a>
+                        <a href="{{ url_for('main')}}#home" class="pr-link pr-row header-link">Home</a>
                     </li>
 
                     <li>
-                        <a href="#about" class="pr-link pr-row header-link">About</a>
+                        <a href="{{ url_for('main') }}#about" class="pr-link pr-row header-link">About</a>
                     </li>
 
                     <li>
-                        <a href="#myproject" class="pr-link pr-row header-link">MyProject</a>
+                        <a href="{{ url_for('main') }}#myproject" class="pr-link pr-row header-link">MyProject</a>
                     </li>
 
                     <li>
-                        <a href="#contact" class="pr-link pr-row header-link">Contact</a>
+                        <a href="{{ url_for('main') }}#contact" class="pr-link pr-row header-link">Contact</a>
                     </li>
                 </ul>
                 
