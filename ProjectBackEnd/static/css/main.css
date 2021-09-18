@@ -114,6 +114,17 @@
     position: relative;
 }
 
+#home .card-home a{
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+#home .card-home a:hover{
+    text-decoration: none;
+}
+
 .panthom{
     position: absolute;
     width: 100%;
