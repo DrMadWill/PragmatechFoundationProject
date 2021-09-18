@@ -31,27 +31,17 @@ function will(){
     let f
 
     f=window.innerWidth
-    console.log('bu genislik deyerdi',f)
 
     if (f>768){
         d.style.display='flex'
         c.style.display='flex'
 
-        header.style.backgroundColor='transparent'
-        header.style.boxShadow='0 0 0 0 blue'
         
-        for(i=0;i<=headlink.length;i++){
-            headlink[i].style.color='white'
-        }
         
     }else{
         d.style.display='none'
         c.style.display='none'
-        header.style.backgroundColor='#f1f1f1'
-        headlink[0].style.color="#000"
-        for(i=1;i<=headlink.length;i++){
-            headlink[i].style.color='rgba(63, 59, 59,0.83)'
-        }
+        
     }
 
     
@@ -94,14 +84,12 @@ window.addEventListener('scroll',()=>{
         
         header.style.backgroundColor='#f1f1f1'
         headlink[0].style.color="#000"
+        header.style.boxShadow='0 0 15px 0 rgba(78, 78, 78, 0.342)'
         for(i=1;i<=headlink.length;i++){
             headlink[i].style.color="rgba(63, 59, 59,0.83)"
             
-        
-
-        
-
         }
+        
     }
 })
 

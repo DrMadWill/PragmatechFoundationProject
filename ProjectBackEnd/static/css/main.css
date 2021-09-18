@@ -445,12 +445,17 @@
 
     .pr-project-container-tel{
         display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 10px;
+        
     }
 
     .pr-project-container-tel .pr-card{
         width: 100%;
         height: auto;
-        margin:0 15px ;
+        margin:0 px ;
+        margin-bottom: 20px;
     }
 
     .pr-project-container-tel .pr-card-head{
