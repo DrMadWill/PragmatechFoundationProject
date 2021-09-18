@@ -36,13 +36,28 @@
     header {
         background-color: var(--first-clr);
         width: 100%;
-        padding: 0.7rem 0;
+        padding: 1rem 0;
         position:fixed;
         top: 0;
         z-index: 7;
         box-shadow:0 3px 7px var(--shadow);
     }
 
+    @media (max-width:768px) {
+        header{
+            background-color: var(--first-clr) !important;
+            box-shadow:0 3px 7px var(--shadow) !important;
+        }
+
+        #lost .header-link,#lost1 .header-link{
+            color: var(--fourth-clr) !important;
+        }
+
+        #lost .header-link:hover,#lost1 .header-link:hover{
+            color: var(--second-clr) !important;
+        }
+
+    }
     
 
 
@@ -135,9 +150,10 @@
     #bar-icon{
         display:none;
         position: absolute;
-        top: -0.25rem;
+        top: 1rem;
         right: 0.5rem;
-        font-size: 2rem;
+        font-size: 2.6rem;
+        cursor: pointer;
 
     }
     #bar-icon a{
