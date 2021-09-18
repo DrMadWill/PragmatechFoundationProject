@@ -300,33 +300,30 @@
 /* Card */
 
 .pr-project-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 30px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "pro-1 pro-2"
-      "pro-3 pro-4";
-    width:100%;
+    display: flex;
+   
     
-  }
+}
+
+#myproject .row .col-6{
+    margin-bottom: 40px;
+}
   
-  .pro-1 { grid-area: pro-1; 
+/* .pro-1 { grid-area: pro-1; 
     
 }
   
-  .pro-2 { grid-area: pro-2; 
+.pro-2 { grid-area: pro-2; 
     
 }
   
-  .pro-3 { grid-area: pro-3; 
+.pro-3 { grid-area: pro-3; 
     
 }
   
-  .pro-4 { grid-area: pro-4; 
+.pro-4 { grid-area: pro-4; 
     
-}
+} */
   
 
 .pr-card{
