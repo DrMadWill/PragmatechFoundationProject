@@ -203,6 +203,8 @@
 
         <section id="myproject">
             
+            <!--MyPoject Deskop Veiw Start -->
+
             <div class="pr-row pr-flex-direction-column container">
 
                 <div class="pr-row pr-justify-content-center">
@@ -281,49 +283,94 @@
                             </div>
                     </div>
 
-                    
-  
 
                 </div>
 
-                
-                
 
+                <div id="showbox" class="row pr-project-container">
+
+                    <div class="col-6">
+                            <div class="pr-card pr-row pr-row-taplet">
+                                <div class="pr-card-head"></div>
+                                <div class="pr-card-body">
+                                    <div class="pr-card-time">
+                                        <i class="far fa-clock"></i> December 25.07.21
+                                    </div>
+                                    <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
+                                    <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                    <a class="pr-card-btn" href="{{url_for('project')}}">Read aricle</a>
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+
+                <div class="pr-row pr-project-container pr-justify-content-center algin-items-center">
+
+                    <button id="btnDeskop" class="project-more" onclick="showMore()" >
+                        Show more...
+                    </button>
+    
+                </div>
+                
             </div>
 
-             <!-- TELEFON VEIW -->
+            <!-- MyPoject Deskop Veiw End -->
+
+
+            <!-- TELEFON VEIW Start-->
 
             <div class="pr-project-container-tel">
-                <div class="pr-card pr-row pr-row-taplet">
-                    <div class="pr-card-head"></div>
-                    <div class="pr-card-body">
-                        <div class="pr-card-time">
-                            <i class="far fa-clock"></i> December 25.07.21
+                <div>
+                    <div class="pr-card pr-row pr-row-taplet">
+                        <div class="pr-card-head"></div>
+                        <div class="pr-card-body">
+                            <div class="pr-card-time">
+                                <i class="far fa-clock"></i> December 25.07.21
+                            </div>
+                            <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
+                            <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                            <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
                         </div>
-                        <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
-                        <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                        <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
+                        
+    
                     </div>
-                    
+                </div>
+                
+                <div id="showBoxTablet">
+
+                    <div class="pr-card pr-row pr-row-taplet">
+                        <div class="pr-card-head"></div>
+                        <div class="pr-card-body">
+                            <div class="pr-card-time">
+                                <i class="far fa-clock"></i> December 25.07.21
+                            </div>
+                            <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
+                            <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                            <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
+                        </div>
+                        
+    
+                    </div>
 
                 </div>
 
-                <div class="pr-card pr-row pr-row-taplet">
-                    <div class="pr-card-head"></div>
-                    <div class="pr-card-body">
-                        <div class="pr-card-time">
-                            <i class="far fa-clock"></i> December 25.07.21
-                        </div>
-                        <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
-                        <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                        <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
-                    </div>
-                    
 
+
+
+                <div class="pr-row pr-justify-content-center algin-items-center">
+
+                    <button id="btnTablet" class="project-more" onclick="MoreTablet()" >
+                        Show more...
+                    </button>
+    
                 </div>
-
                 
             </div>
+
+            <!-- TELEFON VEIW End-->
 
         </section>
 

@@ -70,7 +70,7 @@ function iconclick(){
 
 
 
-
+// header --> stiky navbar 
 
 window.addEventListener('scroll',()=>{
     if (document.documentElement.scrollTop<=50){
@@ -78,21 +78,66 @@ window.addEventListener('scroll',()=>{
         header.style.boxShadow='0 0 0 0 blue'
         
         for(i=0;i<=headlink.length;i++){
-            headlink[i].style.color="#fff"
+            headlink[i].style.color='#fff'
         }
     }else{
         
         header.style.backgroundColor='#f1f1f1'
-        headlink[0].style.color="#000"
+        headlink[0].style.color='#000'
         header.style.boxShadow='0 0 15px 0 rgba(78, 78, 78, 0.342)'
         for(i=1;i<=headlink.length;i++){
-            headlink[i].style.color="rgba(63, 59, 59,0.83)"
+            headlink[i].style.color='#3f3b3b'
             
         }
         
     }
 })
 
+
+// Show More --> btn
+
+
+// Deskop Show More --> btn
+
+let showBoxDeskop = document.getElementById('showbox');
+let btnShowDeskop = document.getElementById('btnDeskop')
+
+function showMore(){
+    if (a===true){
+        a=false;
+        showBoxDeskop.style.display='flex';
+        btnShowDeskop.innerHTML='...Show Less';
+
+
+    }else{
+        a=true;
+        showBoxDeskop.style.display='none';
+        btnShowDeskop.innerHTML='Show More...';
+    }
+
+
+}
+
+
+
+
+// Tablet Show More --> btn
+
+let BoxTablet = document.getElementById('showBoxTablet')
+let btnTablet = document.getElementById('btnTablet')
+
+function MoreTablet(){
+    if(a==true){
+        a=false;
+        BoxTablet.style.display='flex'
+        btnTablet.innerHTML='...Show Less'
+    }else{
+        a=true;
+        BoxTablet.style.display='none';
+        btnTablet.innerHTML='Show More...'
+    }
+    
+}
 
 
 

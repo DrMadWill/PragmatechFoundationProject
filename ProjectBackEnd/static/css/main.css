@@ -309,22 +309,40 @@
     margin-bottom: 40px;
 }
   
-/* .pro-1 { grid-area: pro-1; 
-    
+
+/* Show more Start */
+
+#showbox{
+    display: none;
 }
-  
-.pro-2 { grid-area: pro-2; 
-    
+
+#showBoxTablet{
+    display: none;
 }
-  
-.pro-3 { grid-area: pro-3; 
+
+
+/* Show button */
+
+.project-more{
+    padding: 15px 20px;
+    font-size:17px;
+    background: white;
     
+    font-weight: 450;
+    border: 0;
+    border-radius: 46px;
+    color:var(--fourth-clr);
+    transition: color 0.6s;
+    transition: background 0.6s ;
 }
-  
-.pro-4 { grid-area: pro-4; 
-    
-} */
-  
+
+.project-more:hover{
+    background: #24C040;
+    color: var(--first-clr);
+    transition: all 0.6s ease-in;
+}
+/* Show more End */
+
 
 .pr-card{
     height: 360px;
