@@ -1,8 +1,20 @@
-from flask import Flask,redirect,url_for,render_template,request
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-HomeInf=[
-    'We make beautiful websites for all people.']
+app=Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///resault.db'
+db = SQLAlchemy(app)
 
+
+
+class homeinf(db.Model):
+    id  = db.Column(db.Integer, primary_key=True);
+    homeinfores=db.Column(db.String(200),nullable=True)
+
+
+
+
+# HomeInf=['We make beautiful websites for all people.']
 
 
 infose =[
@@ -18,33 +30,3 @@ infose =[
     }
 
 ]
-
-
-
-
-app=Flask(__name__)
-@app.route('/')
-def main():
-    return render_template('include/maxwill.html',infos=infose,homeinfoes=HomeInf)
-
-
-@app.route('/project')
-def project():
-    return render_template('include/will-project.html')
-
-
-@app.route('/admin',methods=['GET','POST'])
-def admin():
-    if request.method=='POST':
-        HomeInf[0] =request.form.get('HomeTitleText');
-
-        infose[0]['cardTime']=request.form.get('cardTime');
-        infose[0]['cardTitle']=request.form.get('cardTitle');
-        infose[0]['cardText']=request.form.get('cardText')
-        return redirect('/admin')
-    return render_template('controlpanel.html')
-
-
-if __name__ == '__main__':
-    
-    app.run(debug=True)
