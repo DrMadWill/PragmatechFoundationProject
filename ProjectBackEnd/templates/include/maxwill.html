@@ -11,7 +11,7 @@
     
                     <div class="pr-col-6 pr-box-sizing home-info">
                         
-                        <h1 class="home-info-text">We make beautiful websites for all people.</h1>
+                        <h1 class="home-info-text">{{homeinfoes[0]}}</h1>
                         
                     </div>
                     
@@ -30,7 +30,7 @@
     
                     <div class="pr-col-12 pr-box-sizing home-info pr-responsive ">
                         
-                        <h1 class="home-info-text">We make beautiful websites for all people.</h1>
+                        <h1 class="home-info-text">{{homeinfoes[0]}}</h1>
                         
                     </div>
                     
@@ -289,20 +289,29 @@
 
                 <div id="showbox" class="row pr-project-container">
 
-                    <div class="col-6">
-                            <div class="pr-card pr-row pr-row-taplet">
-                                <div class="pr-card-head"></div>
-                                <div class="pr-card-body">
-                                    <div class="pr-card-time">
-                                        <i class="far fa-clock"></i> December 25.07.21
+                    {% for info in infos %}
+                    
+                    
+
+                        <div class="col-6">
+                                <div class="pr-card pr-row deskopveiw pr-row-taplet">
+                                    <div class="pr-card-head">
+                                        <img class="img-fluid" src="../../static/img/navigate-using-stars-night-sky-1200x720.jpg" alt="">
                                     </div>
-                                    <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
-                                    <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                    <a class="pr-card-btn" href="{{url_for('project')}}">Read aricle</a>
-                                    
+                                    <div class="pr-card-body">
+                                        <div class="pr-card-time">
+                                            <i class="far fa-clock"></i> 
+                                            {{info.cardTime}}
+                                        </div>
+                                        <a href="{{url_for('project')}}" class="pr-card-title pr-link">{{info.cardTitle}}</a>
+                                        <p class="pr-card-text">{{info.cardText}}</p>
+                                        <a class="pr-card-btn" href="{{url_for('project')}}">Read aricle</a>
+                                        
+                                    </div>
                                 </div>
-                            </div>
-                    </div>
+                        </div>
+
+                    {% endfor %}
 
                 </div>
 
@@ -339,21 +348,30 @@
                     </div>
                 </div>
                 
-                <div id="showBoxTablet">
+                <div id="showBoxTablet" class="pr-row pr-flex-direction-column">
 
-                    <div class="pr-card pr-row pr-row-taplet">
-                        <div class="pr-card-head"></div>
-                        <div class="pr-card-body">
-                            <div class="pr-card-time">
-                                <i class="far fa-clock"></i> December 25.07.21
+                    {% for info in infos %}
+                    
+                        <div class="pr-card pr-row pr-row-taplet">
+                            <div class="pr-card-head">
+
                             </div>
-                            <a href="{{url_for('project')}}" class="pr-card-title pr-link">How To Find Out Beautiful Workspace.</a>
-                            <p class="pr-card-text">Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                            <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
+                            <div class="pr-card-body">
+                                <div class="pr-card-time">
+                                    <i class="far fa-clock"></i> 
+                                    {{info.cardTime}}
+                                </div>
+                                <a href="{{url_for('project')}}" class="pr-card-title pr-link">{{info.cardTitle}}</a>
+                                <p class="pr-card-text">{{info.cardText}}</p>
+                                <a href="{{url_for('project')}}" class="pr-card-btn">Read aricle</a>
+                            </div>
+                            
+        
                         </div>
-                        
-    
-                    </div>
+
+                    {% endfor %}
+
+
 
                 </div>
 

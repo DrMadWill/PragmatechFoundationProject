@@ -201,7 +201,43 @@ nav #nav-right ul li a, nav #share li a{
     font-weight: 400;
 }
 
+/* 10px mesafe */
 
 .space-10{
     padding: 0 10px !important;
+}
+
+/* Deskop Veiw */
+
+.deskopveiw{
+    display: flex;
+}
+
+
+/* Tablet Veiw */
+
+.tabletveiw{
+    display: none;
+}
+
+
+@media (max-width:768px){
+    .deskopveiw{
+        display: none;
+    }
+
+    .tabletveiw{
+        display: flex;
+    }
+
+}
+
+
+/* Img fluid */
+
+.img-fluid{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
 }

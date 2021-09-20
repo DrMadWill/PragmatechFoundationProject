@@ -327,6 +327,7 @@
     padding: 15px 20px;
     font-size:17px;
     background: white;
+    box-shadow: 0 3px 5px black;
     
     font-weight: 450;
     border: 0;
@@ -356,6 +357,10 @@
     background-color: black;
     border-top-left-radius:5px ;
     border-bottom-left-radius: 5px;
+}
+
+.pr-card-title{
+    text-transform: capitalize;
 }
 
 @media (min-width:992px) and (max-width:1200px){
