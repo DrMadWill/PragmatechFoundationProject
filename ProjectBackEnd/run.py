@@ -5,7 +5,7 @@ from app import *
 app=Flask(__name__)
 @app.route('/')
 def main():
-    return render_template('maxwill.html',infos=infose,homeinfoes=homein)
+    return render_template('maxwill.html',infos=infose)
 
 
 @app.route('/project')
