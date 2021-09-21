@@ -7,10 +7,13 @@ db = SQLAlchemy(app)
 
 
 
-class homeinf(db.Model):
-    id  = db.Column(db.Integer, primary_key=True);
-    homeinfores=db.Column(db.String(200),nullable=True)
+class homein(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    info = db.Column(db.String(80), nullable=False)
+    
 
+    def __repr__(self):
+        return '<User %r>' % self.info
 
 
 
@@ -30,3 +33,4 @@ infose =[
     }
 
 ]
+
