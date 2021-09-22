@@ -237,7 +237,8 @@ nav #nav-right ul li a, nav #share li a{
 
 .img-fluid{
     width: 100%;
-    height: auto;
+
+    height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
 }
