@@ -17,7 +17,7 @@
                     
                     <div class="pr-col-6 pr-box-sizing home-info">
                         
-                        <h1 class="home-info-text">{{homeinfo}}</h1>
+                        <h1 class="home-info-text">{{homeinfo['info']}}</h1>
                         
                     </div>
                     
@@ -25,8 +25,8 @@
     
                         
                         <a href="">
-                            <div  class="img-home"></div><img src="../static/img/about-image.jpg" class="img-home img-fluid" alt=""></div>
-                            <div class="panthom"></div>
+                            <div  class="img-home"></div><img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt=""></div>
+                            
                         </a>
                         
     
@@ -237,7 +237,7 @@
                             <div class="col-6">
                                     <div class="pr-card pr-row deskopveiw pr-row-taplet">
                                         <div class="pr-card-head">
-                                            <img class="img-fluid" src="../../static/img/navigate-using-stars-night-sky-1200x720.jpg" alt="">
+                                            <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
                                         </div>
                                         <div class="pr-card-body">
                                             <div class="pr-card-time">
@@ -272,7 +272,7 @@
                             <div class="col-6">
                                     <div class="pr-card pr-row deskopveiw pr-row-taplet">
                                         <div class="pr-card-head">
-                                            <img class="img-fluid" src="../../static/img/navigate-using-stars-night-sky-1200x720.jpg" alt="">
+                                            <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
                                         </div>
                                         <div class="pr-card-body">
                                             <div class="pr-card-time">
@@ -321,7 +321,9 @@
 
                         <div>
                             <div class="pr-card pr-row pr-row-taplet">
-                                <div class="pr-card-head"></div>
+                                <div class="pr-card-head">
+                                    <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
+                                </div>
                                 <div class="pr-card-body">
                                     <div class="pr-card-time">
                                         <i class="far fa-clock"></i>{{info.protime}}
@@ -349,7 +351,7 @@
                     
                             <div class="pr-card pr-row pr-row-taplet">
                                 <div class="pr-card-head">
-
+                                    <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
                                 </div>
                                 <div class="pr-card-body">
                                     <div class="pr-card-time">
@@ -405,7 +407,7 @@
                     </div>
 
                     <div>
-                        <form action="">
+                        <form action="" method="POST">
             
                             <div class="clearfix cas">
             

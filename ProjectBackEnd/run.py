@@ -23,19 +23,44 @@ def project():
 @app.route('/admin',methods=['GET','POST'])
 def admin():
     if request.method=='POST':
+        file = request.files['file']
+        print(file)
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         homeinfo=Homein(
-            info=request.form.get('HomeTitleText')
+            info=request.form.get('HomeTitleText'),
+            infoimg=filename
         )
-        # proinfo=Projectin(
-        #     protime=request.form.get('cardTime'),
-        #     protitle=request.form.get('cardTitle'),
-        #     prosortcut=request.form.get('cardText')
-        # )
+        
         db.session.add(homeinfo)
         db.session.commit()
         return redirect('/admin')
     
     return render_template('admin/adminpanel.html')
+
+
+
+# @app.route('/admin',methods=['GET','POST'])
+# def adminpro():
+#     if request.method=='POST':
+#         file = request.files['pfile']
+#         print(file)
+#         filename = secure_filename(file.filename)
+#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+#         proinfo=Projectin(
+#             protime=request.form.get('cardTime'),
+#             protitle=request.form.get('cardTitle'),
+#             prosortcut=request.form.get('cardText'),
+#             aboutinfoimg=filename
+#         )
+#         db.session.add(proinfo)
+#         db.session.commit()
+#         return redirect('/admin')
+    
+#     return render_template('admin/adminpanel.html')
+
+
 
 
 if __name__ == '__main__':
