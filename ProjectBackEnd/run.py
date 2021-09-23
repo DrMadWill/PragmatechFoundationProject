@@ -48,7 +48,7 @@ def main():
         if a>4 :
             shadowbox.append(infora)
     
-    return render_template('maxwill.html',projec=shadowbox,len=leng,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo)
+    return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo)
 
 
 
