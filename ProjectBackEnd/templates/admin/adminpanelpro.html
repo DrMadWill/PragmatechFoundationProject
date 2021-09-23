@@ -1,0 +1,51 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel MyPtoject</title>
+{% endblock %}
+
+
+{% block content %}
+
+    
+
+
+<!-------------------------- MyProject ---------------------------->
+        <div class="col d-flex flex-column  mx-4   my-3">
+            <div class="bg-success d-flex  col-12 justify-content-center text-light px-2 py-3">
+              MyProject
+            </div>
+            <form class="row"   enctype="multipart/form-data" method="POST" >
+              <!-- Card Time  -->
+              <div class="col-12">
+                <input type="text" name="cardTime" class="form-control my-2"  placeholder="Card Time" required>
+              </div>
+              <!-- Card Time End-->
+
+              <!-- Card Title -->
+              <div class="col-12">
+                <input type="text" name="cardTitle" class="form-control my-2"  placeholder="Card Title" required>
+              </div>
+              <!-- Card Title End-->
+
+              <!-- Card Text -->
+              <div class="col-12">
+                <input type="text" name="cardText" class="form-control my-2"  placeholder="Card Text" required>
+              </div>
+              <!-- Card Text End-->
+
+              <!-- image upload start -->
+              <input type="file" class="col-12 form-control-file" name="pfile">
+              <!-- image upload end -->
+
+              <div class="col-12 d-flex  justify-content-center my-2">
+                <button class="btn btn-lg btn-block btn-success" type="submit">Add info</button>
+              </div>
+
+
+            </form>
+
+            <div></div>
+
+        </div>        
+{% endblock %}

@@ -30,8 +30,9 @@
 
 /* home */
 
+
 #home{
-    
+ 
     align-items: center;
     background-image:linear-gradient(60deg, rgba(60,173,208,0.7) 25%, rgba(46,195,75,0.7) 56%, rgba(0,181,23,0.7) 83%), url(../img/bg-img.jpeg);
     background-repeat: no-repeat;
@@ -204,23 +205,6 @@
     margin-bottom: 28px;
 
 }
-
-.web-design{
-    width: 55%;
-}
-
-.css-design{
-    width: 85%;
-}
-
-.html-design{
-   width:75% ; 
-}
-
-.scss-design{
-    width: 90%;
-}
-
 
 .about-image{
     width: 360px;

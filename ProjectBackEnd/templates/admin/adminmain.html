@@ -1,0 +1,44 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel Main</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row mt-5  justify-content-center">
+    <table style="width: 85%;" class=" mt-5 shadow-lg table table-striped table-bordered">
+        <thead class="table-dark text-light">
+            <tr>
+                <th class="w-25">Full Name</th>
+                <th class="w-25">Email</th>
+                <th>Istek</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in contact %}
+            
+            
+                <tr>
+                    <td class="text-capitalize">{{info.fulname}}</td>
+
+                    <td>{{info.email}}</td>
+
+                    <td>{{info.message}}</td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="height: 600px;"></div>
+    
+</div>
+
+
+
+
+
+{% endblock %}
+

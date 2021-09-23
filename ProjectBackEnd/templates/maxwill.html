@@ -25,7 +25,7 @@
     
                         
                         <a href="">
-                            <div  class="img-home"></div><img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt=""></div>
+                            <div  class="img-home"><img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt=""></div>
                             
                         </a>
                         
@@ -36,17 +36,15 @@
     
                     <div class="pr-col-12 pr-box-sizing home-info pr-responsive ">
                         
-                        <h1 class="home-info-text">{{homeinfo}}</h1>
+                        <h1 class="home-info-text">{{homeinfo['info']}}</h1>
                         
                     </div>
                     
                     <div class="pr-col-12 card-home pr-responsive">
     
                         <a href="">
-                            <div class="img-home"></div>
-                            
-                            <div class="panthom">
-                                
+                            <div class="img-home">
+                                <img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt="">
                             </div>
                         </a>
     
@@ -65,46 +63,48 @@
 
                 <div class="pr-col-5">
                     <div class="pr-section-title ">
-                        <h2 class="pr-title-name">Let us introduce</h2>
+                        <h2 class="pr-title-name">Let me introduce</h2>
                         <div class="">
                             <button class="pr-carusel-btn"><span></span></button>
                             <button class="pr-carusel-btn"><span></span></button>
                             <button class="pr-carusel-btn"><span></span></button>
                         </div>
                     </div>
-                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
                 </div>
 
                 <div class="pr-col-3 pr-box-sizing ">
                     <div class="pr-row">
-                        <h4>Web Design</h4>
-                        <span class="span-font">55%</span>
+                        <h4>{{aboutinfo['disgen1']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
                     </div>
-                    <div class="pr-border web-design"></div>
+                    <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
 
                     <div class="pr-row">
-                        <h4>CSS Design</h4>
-                        <span class="span-font">85%</span>
+                        <h4>{{aboutinfo['disgen2']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen2interest']}}%</span>
                     </div>
-                    <div class="pr-border css-design"></div>
+                    <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border "></div>
                     
                     <div class="pr-row">
-                        <h4>HTML Design</h4>
-                        <span class="span-font">75%</span>
+                        <h4>{{aboutinfo['disgen3']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
                     </div>
-                    <div class="pr-border html-design"></div>
+                    <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
 
                     <div class="pr-row">
-                        <h4>SCSS Design</h4>
-                        <span class="span-font">90%</span>
+                        <h4>{{aboutinfo['disgen4']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen4interest']}}</span>
                     </div>
-                    <div class="pr-border scss-design"></div>
+                    <div style="width: {{aboutinfo['disgen4interest']}}%" class="pr-border"></div>
                     
                 </div>
 
                 <div class="pr-col-4">
-                    <div class="about-image"></div>
+                    <div class="about-image">
+                        <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
+                    </div>
                 </div>
 
                 <!-- TABLET VIEW -->
@@ -120,40 +120,42 @@
                                 <button class="pr-carusel-btn"><span></span></button>
                             </div>
                         </div>
-                        <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                        <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                        <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
                     </div>
 
                     <div class="pr-col-6  pr-box-sizing">
                         <div class="pr-row pr-justify-content-between">
-                            <h4>Web Design</h4>
-                            <span class="span-font">55%</span>
+                            <h4>{{aboutinfo['disgen1']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
                         </div>
-                        <div class="pr-border web-design"></div>
+                        <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
 
                         <div class="pr-row pr-justify-content-between">
-                            <h4>CSS Design</h4>
-                            <span class="span-font">85%</span>
+                            <h4>{{aboutinfo['disgen2']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen2interest']}}</span>
                         </div>
-                        <div class="pr-border css-design"></div>
+                        <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border"></div>
                         
                         <div class="pr-row pr-justify-content-between">
-                            <h4>HTML Design</h4>
-                            <span class="span-font">75%</span>
+                            <h4>{{aboutinfo['disgen3']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
                         </div>
-                        <div class="pr-border html-design"></div>
+                        <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
 
                         <div class="pr-row pr-justify-content-between">
-                            <h4>SCSS Design</h4>
-                            <span class="span-font">90%</span>
+                            <h4>{{aboutinfo['disgen4']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
                         </div>
-                        <div class="pr-border scss-design"></div>
+                        <div style="width: {{aboutinfo['disgen4interest']}}%;" class="pr-border"></div>
                         
                     </div>
                 </div>
 
                 <div class="pr-col-12 pr-responsive">
-                    <div class="about-image"></div>
+                    <div class="about-image">
+                        <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
+                    </div>
                 </div>                
             </div>
 
@@ -169,39 +171,40 @@
                             <button class="pr-carusel-btn"><span></span></button>
                         </div>
                     </div>
-                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                    <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
                 </div>
 
                 <div class="pr-col-12 pr-justify-content-center pr-box-sizing">
-                    <div class="pr-row pr-justify-content-between">
-                        <h4>Web Design</h4>
-                        <span class="span-font">55%</span>
-                    </div>
-                    <div class="pr-border web-design"></div>
 
                     <div class="pr-row pr-justify-content-between">
-                        <h4>CSS Design</h4>
-                        <span class="span-font">85%</span>
+                        <h4>{{aboutinfo['disgen1']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
                     </div>
-                    <div class="pr-border css-design"></div>
+                    <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen2']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen2interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border"></div>
                     
                     <div class="pr-row pr-justify-content-between">
-                        <h4>HTML Design</h4>
-                        <span class="span-font">75%</span>
+                        <h4>{{aboutinfo['disgen3']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
                     </div>
-                    <div class="pr-border html-design"></div>
+                    <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
 
                     <div class="pr-row pr-justify-content-between">
-                        <h4>SCSS Design</h4>
-                        <span class="span-font">90%</span>
+                        <h4>{{aboutinfo['disgen4']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen4interest']}}%</span>
                     </div>
-                    <div class="pr-border scss-design"></div>
+                    <div style="width: {{aboutinfo['disgen4interest']}}%;" class="pr-border"></div>
                     
                 </div>
                 
                 <div class="pr-col-12 ">
-                    <img src="../../static/img/about-image.jpg" class="img-responsive" alt="">
+                    <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
                 </div>
             </div>
 
@@ -228,16 +231,12 @@
 
                 <div class="row pr-project-container">
 
-                    {% for info in home %}
+                    {% for info in prostatic %}
 
-                        
-                        {% if info.id>len  %}
-                            
-
-                            <div class="col-6">
+                        <div class="col-6">
                                     <div class="pr-card pr-row deskopveiw pr-row-taplet">
                                         <div class="pr-card-head">
-                                            <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
+                                            <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
                                         </div>
                                         <div class="pr-card-body">
                                             <div class="pr-card-time">
@@ -252,8 +251,8 @@
                                             
                                         </div>
                                     </div>
-                            </div>
-                        {% endif %}
+                        </div>
+                        
 
                     {% endfor %}
 
@@ -264,15 +263,13 @@
 
                 <div id="showbox" class="row pr-project-container">
 
-                    {% for info in home %}
+                    {% for info in projec %}
                     
-
-                        {% if len>=info.id  %}
 
                             <div class="col-6">
                                     <div class="pr-card pr-row deskopveiw pr-row-taplet">
                                         <div class="pr-card-head">
-                                            <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
+                                            <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
                                         </div>
                                         <div class="pr-card-body">
                                             <div class="pr-card-time">
@@ -289,7 +286,6 @@
                                     </div>
                             </div>
 
-                        {% endif %}
                         
 
                     {% endfor %}
@@ -314,15 +310,15 @@
 
             <div class="pr-project-container-tel">
 
-                {% for info in home %}
+                {% for info in prostatic %}
 
                         
-                    {% if info.id>len  %}
+                    
 
                         <div>
                             <div class="pr-card pr-row pr-row-taplet">
                                 <div class="pr-card-head">
-                                    <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
+                                    <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
                                 </div>
                                 <div class="pr-card-body">
                                     <div class="pr-card-time">
@@ -336,7 +332,7 @@
             
                             </div>
                         </div>
-                    {% endif %}
+                    
                         
 
                 {% endfor %}
@@ -344,14 +340,14 @@
                 
                 <div id="showBoxTablet" class="pr-row pr-flex-direction-column">
 
-                    {% for info in home %}
+                    {% for info in projec %}
                     
 
-                        {% if len>=info.id  %}
+
                     
                             <div class="pr-card pr-row pr-row-taplet">
                                 <div class="pr-card-head">
-                                    <img class="img-fluid" src="../static/img/{{info.aboutinfoimg}}" alt="">
+                                    <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
                                 </div>
                                 <div class="pr-card-body">
                                     <div class="pr-card-time">
@@ -366,7 +362,7 @@
             
                             </div>
 
-                        {% endif %}
+
 
                     {% endfor %}
 
@@ -421,7 +417,7 @@
                             </div>
 
                             
-                            <textarea name="Massege" placeholder="Your Massege" required class="in-conp" id="" cols="30" rows="10"></textarea>
+                            <textarea name="massege" placeholder="Your Massege" required class="in-conp" id="" cols="30" rows="10"></textarea>
                                 
             
                             <div class="submit">
