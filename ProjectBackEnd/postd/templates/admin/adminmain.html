@@ -105,7 +105,7 @@
 
                         <td>{{info.prosortcut}}</td>
                         <td>
-                            <a class="btn  btn-info btn-sm btn" href="">Edit</a>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#pexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
@@ -166,7 +166,7 @@
                         <td class="text-capitalize" >{{info.info}}</td>
                         <td class="text-capitalize" >{{info.infoimg}}</td>
                         <td>
-                            <a class="btn  btn-info btn-sm btn" href="">Edit</a>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('edithome', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
@@ -241,7 +241,7 @@
                         <td class="text-capitalize" >{{info.disgen4}}</td>
                         <td class="text-capitalize" >{{info.disgen4interest}}</td>
                         <td>
-                            <a class="btn  btn-info btn-sm btn" href="">Edit</a>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('editabout', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#aexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
