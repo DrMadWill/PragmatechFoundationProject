@@ -1,5 +1,8 @@
 
 from postd import db
+
+from flask_sqlalchemy import SQLAlchemy
+
 # -------------------Main Website----------------------
 
 

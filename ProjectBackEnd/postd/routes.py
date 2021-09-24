@@ -54,23 +54,31 @@ def main():
 
 
 
-# ----------------------Project Website-----------------
+# -------------------------Project Website-------------------------
 @app.route('/project')
 def project():
     return render_template('will-project.html')
+
+# ----------------Admin Panel Login Iformation----------------------
+@app.route('/admin',methods=['GET','POST'])
+def login():
+    return render_template('admin/login.html')
 
 
 
 # ----------------Admin Panel Main Iformation----------------------
 
-@app.route('/admin',methods=['GET','POST'])
+@app.route('/admin/main',methods=['GET','POST'])
 def adminmain():
     contact=Contactin.query.all()
-    return render_template('admin/adminmain.html',contact=contact)
+    home=Homein.query.all()
+    project=Projectin.query.all()
+    about=Aboutin.query.all()
+    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project)
 
 
 # ----------------Admin Panel Home Iformation----------------------
-@app.route('/adminhome',methods=['GET','POST'])
+@app.route('/admin/home',methods=['GET','POST'])
 def adminhome():
     if request.method=='POST':
         file = request.files['file']
@@ -84,13 +92,13 @@ def adminhome():
         
         db.session.add(homeinfo)
         db.session.commit()
-        return redirect('/adminhome')
+        return redirect('/admin/home')
     
     return render_template('admin/adminpanelhome.html')
 
 
 # ---------------------Admin Panel Project Iformaton---------------
-@app.route('/adminpro',methods=['GET','POST'])
+@app.route('/admin/pro',methods=['GET','POST'])
 def adminpro():
     if request.method=='POST':
         file = request.files['pfile']
@@ -106,13 +114,13 @@ def adminpro():
         )
         db.session.add(proinfo)
         db.session.commit()
-        return redirect('/adminpro')
+        return redirect('/admin/pro')
     
     return render_template('admin/adminpanelpro.html')
 
 # ---------------------Admin Panel About Iformaton---------------
 
-@app.route('/adminabout',methods=['GET','POST'])
+@app.route('/admin/about',methods=['GET','POST'])
 def adminabout():
     if request.method=='POST':
         file = request.files['afile']
@@ -137,6 +145,6 @@ def adminabout():
         )
         db.session.add(aboutinfo)
         db.session.commit()
-        return redirect('/adminabout')
+        return redirect('/admin/about')
     
     return render_template('admin/admipanelabout.html')
