@@ -1,4 +1,4 @@
-from flask import Flask,redirect,render_template,request
+from flask import Flask,redirect,render_template,request,url_for
 from werkzeug.utils import secure_filename
 from . models import Homein,Aboutin,Projectin,Contactin
 from postd import app,db,os
@@ -54,15 +54,29 @@ def main():
 
 
 
+
+
 # -------------------------Project Website-------------------------
+
 @app.route('/project')
 def project():
     return render_template('will-project.html')
 
+
+
+
+
+
+
 # ----------------Admin Panel Login Iformation----------------------
+
 @app.route('/admin',methods=['GET','POST'])
 def login():
     return render_template('admin/login.html')
+
+
+
+
 
 
 
@@ -71,10 +85,24 @@ def login():
 @app.route('/admin/main',methods=['GET','POST'])
 def adminmain():
     contact=Contactin.query.all()
+    contact=contact[::-1]
     home=Homein.query.all()
+    home=home[::-1]
     project=Projectin.query.all()
+    project=project[::-1]
     about=Aboutin.query.all()
+    about=about[::-1]
     return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project)
+
+# ---------------------Admin Panel Contact Delete-------------------
+@app.route('/admin/Contact-delete/<int:id>', methods=['GET','POST'])
+def concactdelete(id):
+    contact = Contactin.query.get_or_404(id)
+    db.session.delete(contact)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
+
+
 
 
 # ----------------Admin Panel Home Iformation----------------------
@@ -92,12 +120,20 @@ def adminhome():
         
         db.session.add(homeinfo)
         db.session.commit()
-        return redirect('/admin/home')
+        return redirect(url_for('adminmain'))
     
     return render_template('admin/adminpanelhome.html')
 
+# ----------------Admin Panel Home Delete----------------------------
+@app.route('/admin/home-delete/<int:id>', methods=['GET','POST'])
+def homedelete(id):
+    home = Homein.query.get_or_404(id)
+    db.session.delete(home)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
 
-# ---------------------Admin Panel Project Iformaton---------------
+
+# ---------------------Admin Panel Project Iformaton----------------
 @app.route('/admin/pro',methods=['GET','POST'])
 def adminpro():
     if request.method=='POST':
@@ -114,9 +150,23 @@ def adminpro():
         )
         db.session.add(proinfo)
         db.session.commit()
-        return redirect('/admin/pro')
+        return redirect(adminhome)
     
     return render_template('admin/adminpanelpro.html')
+
+
+
+# ---------------------Admin Panel Project Delete-------------------
+@app.route('/admin/Project-delete/<int:id>', methods=['GET','POST'])
+def projectdelete(id):
+    proje = Projectin.query.get_or_404(id)
+    db.session.delete(proje)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
+
+
+
+
 
 # ---------------------Admin Panel About Iformaton---------------
 
@@ -145,6 +195,31 @@ def adminabout():
         )
         db.session.add(aboutinfo)
         db.session.commit()
-        return redirect('/admin/about')
+        return redirect(url_for('adminmain'))
     
     return render_template('admin/admipanelabout.html')
+
+
+# ----------------Admin Panel About Delete----------------------------
+@app.route('/admin/about-delete/<int:id>', methods=['GET','POST'])
+def aboutdelete(id):
+    home = Aboutin.query.get_or_404(id)
+    db.session.delete(home)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
+
+
+
+# -----------------------Admin Panel Home  Edit----------------------
+@app.route('/admin/home/edit/<int:id>', methods=['GET','POST'])
+def edithome(id):
+    home = Homein.query.get_or_404(id)
+    if request.method == 'POST':
+       file = request.files.get('file')
+       filename = secure_filename(file.filename)
+       file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+       home.info = request.form.get('title')
+       home.infoimg = filename
+       db.session.commit()
+       return redirect(url_for("adminmain"))
+    return render_template('admin/edithome.html', home=home)
