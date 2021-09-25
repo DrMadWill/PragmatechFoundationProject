@@ -598,14 +598,28 @@
     padding-right:10px;
 }    
 
-textarea{
+
+@media (max-width:768px) {
+    .form-left,.form-right{
+        padding: 0 ;
+    }
+
+    .col-50{
+        float: none;
+        width: 100%;
+    }
+    
+}
+
+
+.pr_in_textarea{
     
     margin: 15px 0;
 }
 
 
+.pr-in-submit{
 
-input[type="submit"]{
     border:1px solid grey;
     background-color: var(--second-clr);
     border-radius: 50px;

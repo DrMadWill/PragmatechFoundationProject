@@ -1,6 +1,4 @@
-
 from postd import db
-
 
 # -------------------Main Website----------------------
 
@@ -44,8 +42,9 @@ class Projectin(db.Model):
     protime = db.Column(db.String(25), nullable=False)
     protitle = db.Column(db.String(50), nullable=False)
     prosortcut = db.Column(db.String(80), nullable=False)
-    projareya = db.Column(db.String(210))
-    projareya2 = db.Column(db.String(210))
+    projareya = db.Column(db.Text)
+    cardTextadd=db.Column(db.String(210))
+    projareya2 = db.Column(db.Text)
     projtitle = db.Column(db.String(100))
     listp = db.Column(db.String(70))
     listp1 = db.Column(db.String(70))
@@ -55,7 +54,7 @@ class Projectin(db.Model):
     listp5 = db.Column(db.String(70))
     listp6 = db.Column(db.String(70))
     listp7 = db.Column(db.String(70))
-    projareya3 = db.Column(db.String(210))
+    projareya3 = db.Column(db.Text)
     proimg=db.Column(db.String(100))
     
 
@@ -69,9 +68,10 @@ class Contactin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fulname = db.Column(db.String(25), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    message = db.Column(db.String(200), nullable=False)
+    message = db.Column(db.Text, nullable=False)
     
     
 
     def __repr__(self):
-        return '<Contactin %r>' % self.protitle
+        return '<Contactin %r>' % self.fulname
+

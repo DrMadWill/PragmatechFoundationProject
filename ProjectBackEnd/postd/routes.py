@@ -155,6 +155,7 @@ def adminpro():
             protitle=request.form.get('cardTitle'),
             prosortcut=request.form.get('cardText'),
             projareya = request.form.get('projareya'),
+            cardTextadd=request.form.get('cardTextadd'),
             projareya2 = request.form.get('projareya2'),
             projtitle = request.form.get('projtitle'),
             listp =request.form.get('listp'),
@@ -259,6 +260,7 @@ def editpro(id):
         proce.protitle=request.form.get('cardTitle')
         proce.prosortcut=request.form.get('cardText')
         proce.projareya = request.form.get('projareya')
+        proce.cardTextadd=request.form.get('cardTextadd')
         proce.projareya2 = request.form.get('projareya2')
         proce.projtitle = request.form.get('projtitle')
         proce.listp =request.form.get('listp')

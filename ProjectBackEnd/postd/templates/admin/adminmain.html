@@ -11,7 +11,6 @@
 <div class="d-flex flex-column align-items-center">
 
     <div id="contact" style="height: 100px;"></div>
-
     <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  mb-2 p-2 rounded shadow-lg flex-column align-items-center" >
         <div class="d-flex mt-2 justify-content-center">
             <h2 >Contact Information </h2>
@@ -19,7 +18,7 @@
         </div>
 
         
-        <table style="width: 95%;" class=" mt-2  table table-hover table-striped table-bordered">
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;">Id </th>
@@ -85,13 +84,13 @@
             <a class="btn btn-success " href="{{url_for('adminpro')}}">Project Add</a>
         </div>
         
-        <table style="width: 95%;" class=" mt-2  table table-hover table-striped table-bordered">
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
-                    <th style="width:15% ;">Card Time</th>
-                    <th style="width:30% ;" >Card Title</th>
-                    <th>Card Description</th>
+                    <th >Card Time</th>
+                    <th >Card Title</th>
+                    <th style="width:15%;" >Card Information</th>
                     <th style="width: 10%;" >Editing</th>
                 </tr>
             </thead>
@@ -105,7 +104,51 @@
 
                         <td class="text-capitalize" >{{info.protitle}}</td>
 
-                        <td>{{info.prosortcut}}</td>
+                        <td>
+                          
+
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#proexampleModalLong{{info.id}}">
+                            Extensive Information
+                          </button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="proexampleModalLong{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  
+                                  
+                                    <div class="container-fluid">
+                                      <div class="row">
+                                        <div class="col-12 py-2 border ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Description</div>
+                                          {{info.prosortcut}}
+                                        </div>
+
+                                        <div class="col-12 mt-2 py-2  border ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Description</div>
+                                          
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#pexampleModalCenter{{info.id}}">
@@ -152,7 +195,7 @@
             <a class="btn btn-success " href="{{url_for('adminhome')}}">Home Add</a>
         </div>
         
-        <table style="width: 95%;" class=" mt-2  table table-hover table-striped table-bordered">
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
@@ -215,22 +258,21 @@
             <a class="btn btn-success " href="{{url_for('adminabout')}}">About Add</a>
         </div>
         
-        <table style="width: 95%;" class=" mt-2  table table-hover table-striped table-bordered">
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
-                    <th style="width:25% ;">Sətir-1</th>
-                    <th style="width:25% ;">Sətir-2</th>
-                    <th style="width:10% ;" >Dizayın - 1</th>
-                    <th style="width:3% ;">Dizayın faizi - 1</th>
-                    <th style="width:10% ;" >Dizayın - 2</th>
-                    <th style="width:3% ;">Dizayın faizi - 2</th>
-                    <th style="width:10% ;" >Dizayın - 3</th>
-                    <th style="width:3% ;">Dizayın faizi - 3</th>
-                    <th style="width:10% ;" >Dizayın - 4</th>
-                    <th style="width:3% ;">Dizayın faizi - 4</th>
-                    <th style="width:10% ;" >Dizayın - 5</th>
-                    <th style="width:3% ;">Dizayın faizi - 5</th>
+                    <th >Information</th>
+                    <th style="width:10% ;" >Language - 1</th>
+                    <th>% - 1</th>
+                    <th style="width:10% ;" >Language - 2</th>
+                    <th>% - 2</th>
+                    <th style="width:10% ;" >Language - 3</th>
+                    <th>% - 3</th>
+                    <th style="width:10% ;" >Language - 4</th>
+                    <th>% - 4</th>
+                    <th style="width:10% ;" >Language - 5</th>
+                    <th>% - 5</th>
                     <th style="width: 10%;" >Editing</th>
                 </tr>
             </thead>
@@ -238,8 +280,39 @@
                 {% for info in about %}
                     <tr>
                         <td> {{info.id}} </td>
-                        <td class="text-capitalize" >{{info.aboutinfo1}}</td>
-                        <td class="text-capitalize" >{{info.aboutinfo2}}</td>
+                        <td class="text-capitalize" >
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Paragraph Information
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="row border">
+                                    <div style="font-size: 18px;" class="d-flex py-2 font-weight-bold h2 justify-content-center">Paragraph One</div>
+                                    <div class="col-12">{{info.aboutinfo1}}</div>
+                                  </div>
+                                  <div class="row border mt-2">
+                                    <div style="font-size: 18px;" class="d-flex py-2 font-weight-bold h2 justify-content-center">Paragraph Two</div>
+                                    <div class="col-12">{{info.aboutinfo2}}</div>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
                         <td class="text-capitalize" >{{info.disgen1}}</td>
                         <td class="text-capitalize" >{{info.disgen1interest}}</td>
                         <td class="text-capitalize" >{{info.disgen2}}</td>
