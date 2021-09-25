@@ -1,7 +1,6 @@
 
 from postd import db
 
-from flask_sqlalchemy import SQLAlchemy
 
 # -------------------Main Website----------------------
 
@@ -38,12 +37,25 @@ class Aboutin(db.Model):
     def __repr__(self):
         return '<Aboutin %r>' % self.aboutinfo1
 
+
 # -------------------MyProject Iformation----------------------
 class Projectin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     protime = db.Column(db.String(25), nullable=False)
     protitle = db.Column(db.String(50), nullable=False)
     prosortcut = db.Column(db.String(80), nullable=False)
+    projareya = db.Column(db.String(210))
+    projareya2 = db.Column(db.String(210))
+    projtitle = db.Column(db.String(100))
+    listp = db.Column(db.String(70))
+    listp1 = db.Column(db.String(70))
+    listp2 = db.Column(db.String(70))
+    listp3 = db.Column(db.String(70))
+    listp4 = db.Column(db.String(70))
+    listp5 = db.Column(db.String(70))
+    listp6 = db.Column(db.String(70))
+    listp7 = db.Column(db.String(70))
+    projareya3 = db.Column(db.String(210))
     proimg=db.Column(db.String(100))
     
 

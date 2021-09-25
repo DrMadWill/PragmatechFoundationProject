@@ -242,3 +242,9 @@ nav #nav-right ul li a, nav #share li a{
     object-fit: cover;
     object-position: top;
 }
+
+
+/* Text capitalize */
+.tcapitalize{
+    text-transform: capitalize;
+}

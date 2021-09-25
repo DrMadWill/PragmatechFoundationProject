@@ -24,6 +24,7 @@ def main():
 
 # ---------------Home Iformasion ---------------------
     
+    # homeinfoall=Homein.query.all()[-1]
     homeinfoall=Homein.query.all()
     hinfolen=len(homeinfoall)-1
     homeinfo=homeinfoall[hinfolen]
@@ -41,6 +42,7 @@ def main():
     c=len(proje)-1
     leng=c-3
     prostatic=[proje[c],proje[c-1],proje[c-2],proje[c-3]]
+    # prostatic=proje[-4:]
     proje =proje[::-1]
     shadowbox=[]
     a=0;
@@ -58,9 +60,15 @@ def main():
 
 # -------------------------Project Website-------------------------
 
-@app.route('/project')
-def project():
-    return render_template('will-project.html')
+# -----------------------Admin Panel Project Edit--------------------
+@app.route('/project/<int:id>', methods=['GET','POST'])
+def project(id):
+    procejt=Projectin.query.get_or_404(id)
+    return render_template('will-project.html',procejt=procejt)
+
+# @app.route('/project')
+# def project():
+#     return render_template('will-project.html')
 
 
 
@@ -146,6 +154,18 @@ def adminpro():
             protime=request.form.get('cardTime'),
             protitle=request.form.get('cardTitle'),
             prosortcut=request.form.get('cardText'),
+            projareya = request.form.get('projareya'),
+            projareya2 = request.form.get('projareya2'),
+            projtitle = request.form.get('projtitle'),
+            listp =request.form.get('listp'),
+            listp1 =request.form.get('listp1'),
+            listp2 =request.form.get('listp2'),
+            listp3 =request.form.get('listp3'),
+            listp4 =request.form.get('listp4'),
+            listp5 =request.form.get('listp5'),
+            listp6 =request.form.get('listp6'),
+            listp7 =request.form.get('listp7'),
+            projareya3 = request.form.get('projareya3'),
             proimg=filename
         )
         db.session.add(proinfo)
@@ -238,6 +258,18 @@ def editpro(id):
         proce.protime=request.form.get('cardTime')
         proce.protitle=request.form.get('cardTitle')
         proce.prosortcut=request.form.get('cardText')
+        proce.projareya = request.form.get('projareya')
+        proce.projareya2 = request.form.get('projareya2')
+        proce.projtitle = request.form.get('projtitle')
+        proce.listp =request.form.get('listp')
+        proce.listp1 =request.form.get('listp1')
+        proce.listp2 =request.form.get('listp2')
+        proce.listp3 =request.form.get('listp3')
+        proce.listp4 =request.form.get('listp4')
+        proce.listp5 =request.form.get('listp5')
+        proce.listp6 =request.form.get('listp6')
+        proce.listp7 =request.form.get('listp7')
+        proce.projareya3 = request.form.get('projareya3')
         proce.proimg=filename
         db.session.commit()
         return redirect(url_for("adminmain"))
