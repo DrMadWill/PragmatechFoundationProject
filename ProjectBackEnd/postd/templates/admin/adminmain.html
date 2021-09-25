@@ -24,7 +24,7 @@
                     <th style="width:5% ;">Id </th>
                     <th class="w-25">Full Name</th>
                     <th class="w-25">Email</th>
-                    <th>Istek</th>
+                    <th>FeedBack</th>
                     <th style="width: 10%;" >Editing</th>
                 </tr>
             </thead>
@@ -39,7 +39,34 @@
 
                         <td>{{info.email}}</td>
 
-                        <td>{{info.message}}</td>
+                        <td>
+                          
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#conexampleModalCenter{{info.id}}">
+                            Extensive Information
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="conexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">Contact {{info.fulname}}</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  {{info.message}}
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
                         <td class="d-flex justify-content-center" >
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#cexampleModalCenter{{info.id}}">
                                 Delete
@@ -88,7 +115,7 @@
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
-                    <th >Card Time</th>
+                    <th style="width:20%;">Card Time</th>
                     <th >Card Title</th>
                     <th style="width:15%;" >Card Information</th>
                     <th style="width: 10%;" >Editing</th>
@@ -116,7 +143,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Card Information	</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -126,19 +153,129 @@
                                   
                                     <div class="container-fluid">
                                       <div class="row">
-                                        <div class="col-12 py-2 border ml-auto">
+                                        <div class="col-12 py-2 border-bottom ml-auto">
                                           <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Description</div>
                                           {{info.prosortcut}}
                                         </div>
 
-                                        <div class="col-12 mt-2 py-2  border ml-auto">
-                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Description</div>
+                                        <div class="col-12 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.proimg}}" alt="">
+                                        </div>
+
+                                        <div class="col-12 mt-5 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 1</div>
+                                          {{info.projareya}}
+                                        </div>
+
+                                        <div style="border-left: 4px solid #DBDADA;" class="col-12 border-bottom ml-2 mt-2 py-2   ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Description</div>
+                                          {{info.prosortcut}}{{info.cardTextadd}}
+                                        </div>
+                                      
+                                        <div class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 2</div>
+                                          {{info.projareya2}}
+                                        </div>
+
+                                        <div style="background-color: #f3f3f3;border-right: 4px solid #DBDADA;" class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Title</div>
+                                          {{info.projtitle}}
+                                        </div>
+
+
+                                        {% if info.listp  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                            
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 1</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp}}
+                                          </div>
                                           
                                         </div>
+                                        {% endif %}
+
+                                        {% if info.listp1  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 2</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp1}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp2  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 3</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp2}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp3  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 4</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp3}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp4  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 5</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp4}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp5  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 6</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp5}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp6  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 7</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp6}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp7  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 8</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp7}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        <div class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 3</div>
+                                          {{info.projareya3}}
+                                        </div>
+                                        
                                       </div>
-                                      
                                     </div>
-                                  
 
                                 </div>
                                 <div class="modal-footer">
@@ -200,7 +337,7 @@
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
                     <th >Home Title</th>
-                    <th style="width: 30%;">Home Image</th>
+                    <th style="width: 15%;">Home Image</th>
                     <th style="width: 10%;" >Editing</th>
                 </tr>
             </thead>
@@ -210,8 +347,40 @@
                 
                     <tr>
                         <td> {{info.id}} </td>
-                        <td class="text-capitalize" >{{info.info}}</td>
-                        <td class="text-capitalize" >{{info.infoimg}}</td>
+
+                        <td class="text-capitalize" >
+                          {{info.info}}
+                        </td>
+
+                        <td>
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#hasexampleModalCenter{{info.id}}">
+                            Image
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="hasexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Home Image</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.infoimg}}" alt="">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('edithome', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hexampleModalCenter{{info.id}}">
@@ -262,7 +431,6 @@
             <thead class="table-dark text-light">
                 <tr style="text-align: center;" >
                     <th style="width:5% ;" >Id</th>
-                    <th >Information</th>
                     <th style="width:10% ;" >Language - 1</th>
                     <th>% - 1</th>
                     <th style="width:10% ;" >Language - 2</th>
@@ -273,17 +441,30 @@
                     <th>% - 4</th>
                     <th style="width:10% ;" >Language - 5</th>
                     <th>% - 5</th>
+                    <th >Information</th>
                     <th style="width: 10%;" >Editing</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 {% for info in about %}
                     <tr>
                         <td> {{info.id}} </td>
-                        <td class="text-capitalize" >
+
+                        <td class="text-capitalize" >{{info.disgen1}}</td>
+                        <td class="text-capitalize" >{{info.disgen1interest}}</td>
+                        <td class="text-capitalize" >{{info.disgen2}}</td>
+                        <td class="text-capitalize" >{{info.disgen2interest}}</td>
+                        <td class="text-capitalize" >{{info.disgen3}}</td>
+                        <td class="text-capitalize" >{{info.disgen3interest}}</td>
+                        <td class="text-capitalize" >{{info.disgen4}}</td>
+                        <td class="text-capitalize" >{{info.disgen4interest}}</td>
+                        <td class="text-capitalize" >{{info.disgen5}}</td>
+                        <td class="text-capitalize" >{{info.disgen5interest}}</td>
+                        <td>
                           <!-- Button trigger modal -->
                           <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                            Paragraph Information
+                            Extensive Information
                           </button>
 
                           <!-- Modal -->
@@ -291,7 +472,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                  <h5 class="modal-title" id="exampleModalLongTitle">About Information</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -305,6 +486,12 @@
                                     <div style="font-size: 18px;" class="d-flex py-2 font-weight-bold h2 justify-content-center">Paragraph Two</div>
                                     <div class="col-12">{{info.aboutinfo2}}</div>
                                   </div>
+                                  <div style="font-size: 18px;" class="d-flex my-2 font-weight-bold h2 justify-content-center">About Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.aboutinfoimg}}" alt="">
+
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -313,16 +500,6 @@
                             </div>
                           </div>
                         </td>
-                        <td class="text-capitalize" >{{info.disgen1}}</td>
-                        <td class="text-capitalize" >{{info.disgen1interest}}</td>
-                        <td class="text-capitalize" >{{info.disgen2}}</td>
-                        <td class="text-capitalize" >{{info.disgen2interest}}</td>
-                        <td class="text-capitalize" >{{info.disgen3}}</td>
-                        <td class="text-capitalize" >{{info.disgen3interest}}</td>
-                        <td class="text-capitalize" >{{info.disgen4}}</td>
-                        <td class="text-capitalize" >{{info.disgen4interest}}</td>
-                        <td class="text-capitalize" >{{info.disgen5}}</td>
-                        <td class="text-capitalize" >{{info.disgen5interest}}</td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('editabout', id=info.id)}}">Edit</a>
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#aexampleModalCenter{{info.id}}">
