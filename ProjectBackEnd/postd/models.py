@@ -75,3 +75,4 @@ class Contactin(db.Model):
     def __repr__(self):
         return '<Contactin %r>' % self.fulname
 
+

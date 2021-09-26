@@ -424,26 +424,26 @@
                         <form action="" method="POST">
             
                             <div class="clearfix cas">
-            
+                                {{csrf_token}}
                                 <div class="from-comp col-50 form-left">
-                                        <input type="text" required name="fulname" placeholder="Your Fullname" class="in-conp tass">
+                                        
+                                        {{form.fulname(class="in-conp tass",placeholder="Your Name")}}
+
                                 </div>
 
                                 <div class="from-comp col-50 form-right">
-                                        <input type="email" name="email" placeholder="Your Email" class="in-conp">
+                                        
+                                        {{form.email(placeholder="Your Email", class="in-conp", cols="30" ,rows="10")}}
+                                        <!--  -->
                                 </div>
                             </div>
 
+                           {{form.message(class="in-conp pr_in_textarea",placeholder="Your Massege", cols="30",rows="10")}}
                             
-                            <textarea name="massege" placeholder="Your Massege" required class="in-conp pr_in_textarea" cols="30" rows="10"></textarea>
-                                
-            
+                            
                             <div class="submit">
-                                <input type="submit" class="pr-in-submit" value="Send Massege">
-                            </div>
-            
-            
-            
+                                {{form.submit(class="pr-in-submit", value="Send Massege")}}
+                            </div>          
                         </form>
             
             

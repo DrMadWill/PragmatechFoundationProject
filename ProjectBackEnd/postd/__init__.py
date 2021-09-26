@@ -12,6 +12,7 @@ app=Flask(__name__)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///resault.db'
+app.config['SECRET_KEY']='mimlmimg7'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

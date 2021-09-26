@@ -2,6 +2,8 @@ from flask import Flask,redirect,render_template,request,url_for
 from werkzeug.utils import secure_filename
 from . models import Homein,Aboutin,Projectin,Contactin
 from postd import app,db,os
+import random
+from postd.forms import ContactFrom
 
 
 
@@ -11,16 +13,25 @@ from postd import app,db,os
 # -------------------Main Website----------------------
 @app.route('/',methods=['GET','POST'])
 def main():
-    if request.method=='POST':
-        contact=Contactin(
-            fulname=request.form.get('fulname'),
-            email=request.form.get('email'),
-            message=request.form.get('massege')
-        )
+    form=ContactFrom()
+    # if request.method=='POST':
+    #     contact=Contactin(
+    #         fulname=request.form.get('fulname'),
+    #         email=request.form.get('email'),
+    #         message=request.form.get('massege')
+    #     )
         
+
+
+    if form.validate_on_submit():
+        contact=Contactin(
+            fulname=form.fulname.data,
+            email=form.email.data,
+            message=form.message.data
+        )
         db.session.add(contact)
         db.session.commit()
-        return redirect('/')
+        return redirect(url_for('main'))
 
 # ---------------Home Iformasion ---------------------
     
@@ -51,7 +62,7 @@ def main():
         if a>4 :
             shadowbox.append(infora)
     
-    return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo)
+    return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo,form=form)
 
 
 
@@ -66,16 +77,12 @@ def project(id):
     procejt=Projectin.query.get_or_404(id)
     return render_template('will-project.html',procejt=procejt)
 
-# @app.route('/project')
-# def project():
-#     return render_template('will-project.html')
 
 
 
+# parol=round((random.random())*100000)
 
-
-
-
+parol='1000'
 # ----------------Admin Panel Login Iformation----------------------
 
 @app.route('/admin',methods=['GET','POST'])
@@ -90,8 +97,9 @@ def login():
 
 # ----------------Admin Panel Main Iformation----------------------
 
-@app.route('/admin/main',methods=['GET','POST'])
+@app.route('/admin/main/',methods=['GET','POST'])
 def adminmain():
+
     contact=Contactin.query.all()
     contact=contact[::-1]
     home=Homein.query.all()
@@ -100,7 +108,9 @@ def adminmain():
     project=project[::-1]
     about=Aboutin.query.all()
     about=about[::-1]
-    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project)
+    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project,parol=id)
+
+    
 
 # ---------------------Admin Panel Contact Delete-------------------
 @app.route('/admin/Contact-delete/<int:id>', methods=['GET','POST'])
@@ -139,6 +149,9 @@ def homedelete(id):
     db.session.delete(home)
     db.session.commit()
     return redirect(url_for('adminmain'))
+
+
+
 
 
 # ---------------------Admin Panel Project Iformaton----------------
