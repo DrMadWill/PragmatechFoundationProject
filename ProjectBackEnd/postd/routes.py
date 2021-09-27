@@ -1,9 +1,9 @@
-from flask import Flask,redirect,render_template,request,url_for
+from flask import Flask,redirect,render_template,request,url_for,session
 from werkzeug.utils import secure_filename
 from . models import Homein,Aboutin,Projectin,Contactin
 from postd import app,db,os
-import random
-from postd.forms import ContactFrom
+
+from postd.forms import ContactFrom,Adminlogin
 
 
 
@@ -14,15 +14,6 @@ from postd.forms import ContactFrom
 @app.route('/',methods=['GET','POST'])
 def main():
     form=ContactFrom()
-    # if request.method=='POST':
-    #     contact=Contactin(
-    #         fulname=request.form.get('fulname'),
-    #         email=request.form.get('email'),
-    #         message=request.form.get('massege')
-    #     )
-        
-
-
     if form.validate_on_submit():
         contact=Contactin(
             fulname=form.fulname.data,
@@ -81,13 +72,30 @@ def project(id):
 
 
 # parol=round((random.random())*100000)
+logina='user'
+passworda='12345'
 
-parol='1000'
 # ----------------Admin Panel Login Iformation----------------------
 
 @app.route('/admin',methods=['GET','POST'])
 def login():
-    return render_template('admin/login.html')
+    form=Adminlogin()
+    if form.validate_on_submit():
+        login=form.login.data
+        password=form.password.data
+        print(login, password,'------------------------form')
+
+        if login==logina:
+            if password==passworda:
+                return redirect(url_for('adminmain'))
+
+
+            
+
+
+        return redirect(url_for('login'))
+
+    return render_template('admin/login.html',adminlog=form)
 
 
 
