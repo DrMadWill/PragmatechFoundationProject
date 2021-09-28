@@ -10,6 +10,72 @@
 
 <div   class="d-flex flex-column align-items-center">
 
+  
+  <div id="acsess" style="height: 100px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  mb-2 p-2 rounded shadow-lg flex-column align-items-center" >
+      <div class="d-flex mt-2 justify-content-center">
+          <h2 >Access Information </h2>
+          
+      </div>
+
+      
+      <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+          <thead class="table-dark text-light">
+              <tr style="text-align: center;" >
+                  <th style="width:5% ;">Id </th>
+                  <th class="w-25">Log in</th>
+                  <th class="w-25">Password</th>
+                  <th style="width: 10%;" >Editing</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for info in contact %}
+              
+              
+                  <tr>
+
+                      <td> {{info.id}} </td>
+                      <td class="text-capitalize">{{info.fulname}}</td>
+
+
+                      <td>
+                        {{info.id}}
+                      </td>
+                      <td>
+                          <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
+                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#prseexampleModalCenter{{info.id}}">
+                              Delete
+                          </button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="prseexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete Project id:{{info.id}}?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <a href="{{url_for('projectdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </td>
+                      
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+
+  </div>
+
     <div id="contact" style="height: 100px;"></div>
     <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  mb-2 p-2 rounded shadow-lg flex-column align-items-center" >
         <div class="d-flex mt-2 justify-content-center">

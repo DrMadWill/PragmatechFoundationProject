@@ -2,6 +2,7 @@ from postd import db
 
 # -------------------Main Website----------------------
 
+# export FLASK_APP=run.py
 
 # -------------------Home Iformation----------------------
 class Homein(db.Model):
@@ -69,6 +70,18 @@ class Contactin(db.Model):
     fulname = db.Column(db.String(25), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     message = db.Column(db.Text, nullable=False)
+    
+    
+
+    def __repr__(self):
+        return '<Contactin %r>' % self.fulname
+
+
+class Admin(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    login= db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
     
     
 

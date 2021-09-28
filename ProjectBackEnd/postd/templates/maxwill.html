@@ -421,10 +421,10 @@
                     </div>
 
                     <div>
-                        <form action="" method="POST">
+                        <form action="{{url_for('main')}}" method="POST">
             
                             <div class="clearfix cas">
-                                {{csrf_token}}
+                                {{form.csrf_token}}
                                 <div class="from-comp col-50 form-left">
                                         
                                         {{form.fulname(class="in-conp tass",placeholder="Your Name")}}

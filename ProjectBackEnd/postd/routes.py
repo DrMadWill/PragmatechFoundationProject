@@ -14,6 +14,7 @@ from postd.forms import ContactFrom,Adminlogin
 @app.route('/',methods=['GET','POST'])
 def main():
     form=ContactFrom()
+    print(form.errors)
     if form.validate_on_submit():
         contact=Contactin(
             fulname=form.fulname.data,
@@ -23,26 +24,18 @@ def main():
         db.session.add(contact)
         db.session.commit()
         return redirect(url_for('main'))
-
-# ---------------Home Iformasion ---------------------
-    
-    # homeinfoall=Homein.query.all()[-1]
+# ---------------Home Iformasion --------------------- 
     homeinfoall=Homein.query.all()
     hinfolen=len(homeinfoall)-1
     homeinfo=homeinfoall[hinfolen]
-
 # ---------------About Iformasion ---------------------
     
     aboutinfoall=Aboutin.query.all()
     ainfolen=len(aboutinfoall)-1
     aboutinfo=aboutinfoall[ainfolen]
-
-
 # ----------------MyProject Iformasion -----------------
-    
     proje = Projectin.query.all()
     c=len(proje)-1
-    leng=c-3
     prostatic=[proje[c],proje[c-1],proje[c-2],proje[c-3]]
     # prostatic=proje[-4:]
     proje =proje[::-1]
@@ -51,8 +44,7 @@ def main():
     for infora in proje:
         a+=1
         if a>4 :
-            shadowbox.append(infora)
-    
+            shadowbox.append(infora)   
     return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo,form=form)
 
 
@@ -81,17 +73,13 @@ passworda='12345'
 def login():
     form=Adminlogin()
     if form.validate_on_submit():
-        login=form.login.data
-        password=form.password.data
-        print(login, password,'------------------------form')
+        log=form.login.data
+        passw=form.password.data
+        print(log, passw,'------------------------form')
 
-        if login==logina:
-            if password==passworda:
+        if log==logina:
+            if passw==passworda:
                 return redirect(url_for('adminmain'))
-
-
-            
-
 
         return redirect(url_for('login'))
 

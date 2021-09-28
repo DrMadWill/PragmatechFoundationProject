@@ -35,6 +35,7 @@
                         <form method="POST">
                             <div class="form-group">
                                 <label na class="form-control-label">Log In</label>
+                                {{adminlog.csrf_token}}
                                 {{adminlog.login(autocomplete="off",class="form-control")}}
                             </div>
                             <div class="form-group">
