@@ -18,6 +18,10 @@
           
       </div>
 
+      <div style="width: 89%;" class="d-flex justify-content-end">
+        <a class="btn btn-success " href="{{url_for('loginadd')}}">Login Add</a>
+      </div>
+
       
       <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
           <thead class="table-dark text-light">
@@ -29,26 +33,30 @@
               </tr>
           </thead>
           <tbody>
-              {% for info in contact %}
+              {% for info in admin %}
               
               
                   <tr>
 
                       <td> {{info.id}} </td>
-                      <td class="text-capitalize">{{info.fulname}}</td>
+                      <td >{{info.login}}</td>
 
 
                       <td>
-                        {{info.id}}
+                        {{info.password}}
                       </td>
                       <td>
-                          <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
-                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#prseexampleModalCenter{{info.id}}">
+                          <a class="btn  btn-info btn-sm btn" href="{{url_for('editlogin', id=info.id)}}">Edit</a>
+
+                          {% if info.id!=1 %}
+                          
+                          
+                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#pe5exampleModalCenter{{info.id}}">
                               Delete
                           </button>
                           
                           <!-- Modal -->
-                          <div class="modal fade" id="prseexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal fade" id="pe5exampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -58,15 +66,16 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want to delete Project id:{{info.id}}?
+                                    Do you want to delete User id:{{info.id}}?
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <a href="{{url_for('projectdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                  <a href="{{url_for('logindelete', id=info.id)}}" class="btn btn-danger">Delete</a>
                                 </div>
                               </div>
                             </div>
                           </div>
+                          {% endif %}
                     </td>
                       
                   </tr>
@@ -353,6 +362,7 @@
                         </td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
+                            {% if info.id>4  %}
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#prseexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
@@ -368,15 +378,20 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
+                                       
+                                        
+                                        
                                         Do you want to delete Project id:{{info.id}}?
                                     </div>
                                     <div class="modal-footer">
                                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                       <a href="{{url_for('projectdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
                                     </div>
+                                    
                                   </div>
                                 </div>
                               </div>
+                            {% endif %}
                         </td>
                         
                     </tr>
@@ -448,6 +463,9 @@
                         </td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('edithome', id=info.id)}}">Edit</a>
+                            {% if info.id!=1 %}
+                            
+                            
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#homexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
@@ -472,6 +490,7 @@
                                   </div>
                                 </div>
                               </div>
+                              {% endif %}
                         </td>
                         
                     </tr>
@@ -585,6 +604,9 @@
                         </td>
                         <td>
                             <a class="btn  btn-info btn-sm btn" href="{{url_for('editabout', id=info.id)}}">Edit</a>
+                            {% if info.id!=1 %}
+                            
+                            
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#aexampleModalCenter{{info.id}}">
                                 Delete
                               </button>
@@ -609,6 +631,7 @@
                                   </div>
                                 </div>
                               </div>
+                            {% endif %}
                         </td>
                         
                     </tr>

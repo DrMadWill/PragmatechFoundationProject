@@ -1,6 +1,6 @@
 from flask import Flask,redirect,render_template,request,url_for,session
 from werkzeug.utils import secure_filename
-from . models import Homein,Aboutin,Projectin,Contactin
+from . models import Homein,Aboutin,Projectin,Contactin,Admin
 from postd import app,db,os
 
 from postd.forms import ContactFrom,Adminlogin
@@ -85,17 +85,37 @@ def login():
 
     return render_template('admin/login.html',adminlog=form)
 
+# ----------------Admin Panel Login Add Iformation----------------------
+
+@app.route("/admin/loginadd",methods=['GET','POST'])
+def loginadd():
+    if request.method=='POST':
+        user=Admin(
+            login=request.form.get('login' ),
+            password=request.form.get('password' )
+        )
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('adminmain'))
+
+    return render_template('admin/admincreatelog.html')
+
+# ----------------Admin Panel Login Delete Iformation----------------------
+
+@app.route('/admin/login-delete/<int:id>', methods=['GET','POST'])
+def logindelete(id):
+    user = Admin.query.get_or_404(id)
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
 
 
-
-
-
-
-# ----------------Admin Panel Main Iformation----------------------
+# ---------------------Admin Panel Main Iformation------------------------
 
 @app.route('/admin/main/',methods=['GET','POST'])
 def adminmain():
-
+    admin=Admin().query.all()
+    admin=admin[::-1]
     contact=Contactin.query.all()
     contact=contact[::-1]
     home=Homein.query.all()
@@ -104,7 +124,7 @@ def adminmain():
     project=project[::-1]
     about=Aboutin.query.all()
     about=about[::-1]
-    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project,parol=id)
+    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project,admin=admin)
 
     
 
@@ -313,3 +333,15 @@ def editabout(id):
         return redirect(url_for("adminmain"))
     return render_template('admin/editabout.html',aboute=aboute)
     
+# ----------------Admin Panel Login Add Iformation----------------------
+
+@app.route('/admin/login/edit/<int:id>', methods=['GET','POST'])
+def editlogin(id):
+    user=Admin.query.get_or_404(id)
+    if request.method=='POST':
+        user.login=request.form.get('login')
+        user.password=request.form.get('password')
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('adminmain'))
+    return render_template('admin/editadmin.html',user=user)
