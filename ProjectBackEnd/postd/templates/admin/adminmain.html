@@ -28,7 +28,6 @@
               <tr style="text-align: center;" >
                   <th style="width:5% ;">Id </th>
                   <th class="w-25">Log in</th>
-                  <th class="w-25">Password</th>
                   <th style="width: 10%;" >Editing</th>
               </tr>
           </thead>
@@ -40,17 +39,10 @@
 
                       <td> {{info.id}} </td>
                       <td >{{info.login}}</td>
-
-
                       <td>
-                        {{info.password}}
-                      </td>
-                      <td>
-                          <a class="btn  btn-info btn-sm btn" href="{{url_for('editlogin', id=info.id)}}">Edit</a>
-
-                          {% if info.id!=1 %}
                           
                           
+                        {% if info.id!=1 %}
                           <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#pe5exampleModalCenter{{info.id}}">
                               Delete
                           </button>
@@ -75,6 +67,7 @@
                               </div>
                             </div>
                           </div>
+                          
                           {% endif %}
                     </td>
                       

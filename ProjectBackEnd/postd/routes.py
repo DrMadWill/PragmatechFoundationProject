@@ -3,7 +3,7 @@ import flask_login
 from werkzeug.utils import secure_filename
 from . models import Homein,Aboutin,Projectin,Contactin,Admin
 from postd import app,db,os ,bcrypt,login_manager
-from flask_login import login_user,login_required
+from flask_login import login_user,login_required,logout_user
 from postd.forms import ContactFrom,Adminlogin
 
 
@@ -94,9 +94,9 @@ def login():
 # >>>>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login Start <<<<<<<<<<<<<<<<<<<<<<<
 
 # ----------------Admin Panel Login Add Web page ----------------------
-@login_required
-@app.route("/admin/loginadd",methods=['GET','POST'])
 
+@app.route("/admin/loginadd",methods=['GET','POST'])
+@login_required
 def loginadd():
     
     form=Adminlogin()
@@ -116,29 +116,22 @@ def loginadd():
     return render_template('admin/admincreatelog.html',form=form)
 
 # ----------------Admin Panel Login Delete Web page ----------------------
-
-@app.route('/admin/login-delete/<int:id>', methods=['GET','POST'])
 @login_required
+@app.route('/admin/login-delete/<int:id>', methods=['GET','POST'])
 def logindelete(id):
     user = Admin.query.get_or_404(id)
     db.session.delete(user)
     db.session.commit()
     return redirect(url_for('adminmain'))
-
-
-# ----------------Admin Panel Login Edit Web page ----------------------
-
-@app.route('/admin/login/edit/<int:id>', methods=['GET','POST'])
+# ----------------Admin Panel Login Out Web page ----------------------
+@app.route("/admin/main/logout")
 @login_required
-def editlogin(id):
-    user=Admin.query.get_or_404(id)
-    if request.method=='POST':
-        user.login=request.form.get('login')
-        user.password=request.form.get('password')
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('adminmain'))
-    return render_template('admin/editadmin.html',user=user)
+def logout():
+
+    logout_user()
+    return redirect(url_for('login'))
+
+
 
 
 
@@ -149,9 +142,9 @@ def editlogin(id):
 # >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # ---------------------Admin Panel Main Web page ------------------------
-@flask_login.login_required
-@app.route('/admin/main/',methods=['GET','POST'])
 
+@app.route('/admin/main/',methods=['GET','POST'])
+@login_required
 def adminmain():
     admin=Admin().query.all()
     admin=admin[::-1]
@@ -205,6 +198,7 @@ def adminhome():
 
 # ----------------Admin Panel Home Delete Web page ----------------------------
 @app.route('/admin/home-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def homedelete(id):
     home = Homein.query.get_or_404(id)
     db.session.delete(home)
@@ -213,6 +207,7 @@ def homedelete(id):
 
 # ---------------------Admin Panel Home Edit Web page ----------------------
 @app.route('/admin/home/edit/<int:id>', methods=['GET','POST'])
+@login_required
 def edithome(id):
     home = Homein.query.get_or_404(id)
     if request.method == 'POST':
@@ -235,6 +230,7 @@ def edithome(id):
 
 # ---------------------Admin Panel MyProject Web page ----------------
 @app.route('/admin/pro',methods=['GET','POST'])
+@login_required
 def adminpro():
     if request.method=='POST':
         file = request.files['pfile']
@@ -271,6 +267,7 @@ def adminpro():
 
 # ---------------------Admin Panel Project Delete Web page -------------------
 @app.route('/admin/Project-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def projectdelete(id):
     proje = Projectin.query.get_or_404(id)
     db.session.delete(proje)
@@ -279,6 +276,7 @@ def projectdelete(id):
 
 # -----------------------Admin Panel MyProject Edit Web page --------------------
 @app.route('/admin/pro/edit/<int:id>', methods=['GET','POST'])
+@login_required
 def editpro(id):
     proce=Projectin.query.get_or_404(id)
     if request.method=='POST':
@@ -319,6 +317,7 @@ def editpro(id):
 # ---------------------Admin Panel About Web page ---------------
 
 @app.route('/admin/about',methods=['GET','POST'])
+@login_required
 def adminabout():
     if request.method=='POST':
         file = request.files['afile']
@@ -350,6 +349,7 @@ def adminabout():
 
 # ----------------Admin Panel About Delete Web page ----------------------------
 @app.route('/admin/about-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def aboutdelete(id):
     home = Aboutin.query.get_or_404(id)
     db.session.delete(home)
@@ -358,6 +358,7 @@ def aboutdelete(id):
 
 # -----------------------Admin Panel About Edit Web page ----------------------
 @app.route('/admin/about/edit/<int:id>', methods=['GET','POST'])
+@login_required
 def editabout(id):
     aboute=Aboutin.query.get_or_404(id)
     if request.method == 'POST':
