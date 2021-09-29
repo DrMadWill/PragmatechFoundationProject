@@ -1,16 +1,17 @@
 from flask import Flask,redirect,render_template,request,url_for,session
+import flask_login
 from werkzeug.utils import secure_filename
 from . models import Homein,Aboutin,Projectin,Contactin,Admin
-from postd import app,db,os
-
+from postd import app,db,os ,bcrypt,login_manager
+from flask_login import login_user,login_required
 from postd.forms import ContactFrom,Adminlogin
 
 
 
 
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# -------------------Main Website----------------------
 @app.route('/',methods=['GET','POST'])
 def main():
     form=ContactFrom()
@@ -52,57 +53,72 @@ def main():
 
 
 
-# -------------------------Project Website-------------------------
+# ----------------Project Web page (Main Single Web page) -----------------
 
-# -----------------------Admin Panel Project Edit--------------------
 @app.route('/project/<int:id>', methods=['GET','POST'])
 def project(id):
     procejt=Projectin.query.get_or_404(id)
     return render_template('will-project.html',procejt=procejt)
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
-# parol=round((random.random())*100000)
-logina='user'
-passworda='12345'
 
-# ----------------Admin Panel Login Iformation----------------------
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Login Web page Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 @app.route('/admin',methods=['GET','POST'])
 def login():
     form=Adminlogin()
     if form.validate_on_submit():
-        log=form.login.data
-        passw=form.password.data
-        print(log, passw,'------------------------form')
 
-        if log==logina:
-            if passw==passworda:
-                return redirect(url_for('adminmain'))
+        user=Admin.query.filter_by(login=form.login.data).first()
+        if user and bcrypt.check_password_hash(user.password,form.password.data):
+            login_user(user)
+            return redirect(url_for('adminmain'))
+
 
         return redirect(url_for('login'))
 
     return render_template('admin/login.html',adminlog=form)
 
-# ----------------Admin Panel Login Add Iformation----------------------
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Login Web page End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+
+
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Admin Panel  Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login Start <<<<<<<<<<<<<<<<<<<<<<<
+
+# ----------------Admin Panel Login Add Web page ----------------------
+@login_required
 @app.route("/admin/loginadd",methods=['GET','POST'])
+
 def loginadd():
-    if request.method=='POST':
+    
+    form=Adminlogin()
+    if form.validate_on_submit():
+        user_row_password=form.password.data
+        pas_hash=bcrypt.generate_password_hash(user_row_password).decode('utf-8')
+        
         user=Admin(
-            login=request.form.get('login' ),
-            password=request.form.get('password' )
+            login=form.login.data,      
+            password=pas_hash
         )
         db.session.add(user)
         db.session.commit()
+        
         return redirect(url_for('adminmain'))
 
-    return render_template('admin/admincreatelog.html')
+    return render_template('admin/admincreatelog.html',form=form)
 
-# ----------------Admin Panel Login Delete Iformation----------------------
+# ----------------Admin Panel Login Delete Web page ----------------------
 
 @app.route('/admin/login-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def logindelete(id):
     user = Admin.query.get_or_404(id)
     db.session.delete(user)
@@ -110,9 +126,32 @@ def logindelete(id):
     return redirect(url_for('adminmain'))
 
 
-# ---------------------Admin Panel Main Iformation------------------------
+# ----------------Admin Panel Login Edit Web page ----------------------
 
+@app.route('/admin/login/edit/<int:id>', methods=['GET','POST'])
+@login_required
+def editlogin(id):
+    user=Admin.query.get_or_404(id)
+    if request.method=='POST':
+        user.login=request.form.get('login')
+        user.password=request.form.get('password')
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('adminmain'))
+    return render_template('admin/editadmin.html',user=user)
+
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# ---------------------Admin Panel Main Web page ------------------------
+@flask_login.login_required
 @app.route('/admin/main/',methods=['GET','POST'])
+
 def adminmain():
     admin=Admin().query.all()
     admin=admin[::-1]
@@ -128,19 +167,25 @@ def adminmain():
 
     
 
-# ---------------------Admin Panel Contact Delete-------------------
+# ---------------------Admin Panel Contact Delete Web page -------------------
 @app.route('/admin/Contact-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def concactdelete(id):
     contact = Contactin.query.get_or_404(id)
     db.session.delete(contact)
     db.session.commit()
     return redirect(url_for('adminmain'))
 
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Main End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
-# ----------------Admin Panel Home Iformation----------------------
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Home Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# ----------------Admin Panel Home Web page ----------------------
 @app.route('/admin/home',methods=['GET','POST'])
+@login_required
 def adminhome():
     if request.method=='POST':
         file = request.files['file']
@@ -158,7 +203,7 @@ def adminhome():
     
     return render_template('admin/adminpanelhome.html')
 
-# ----------------Admin Panel Home Delete----------------------------
+# ----------------Admin Panel Home Delete Web page ----------------------------
 @app.route('/admin/home-delete/<int:id>', methods=['GET','POST'])
 def homedelete(id):
     home = Homein.query.get_or_404(id)
@@ -166,11 +211,29 @@ def homedelete(id):
     db.session.commit()
     return redirect(url_for('adminmain'))
 
+# ---------------------Admin Panel Home Edit Web page ----------------------
+@app.route('/admin/home/edit/<int:id>', methods=['GET','POST'])
+def edithome(id):
+    home = Homein.query.get_or_404(id)
+    if request.method == 'POST':
+       file = request.files['file']
+       print(file)
+       filename = secure_filename(file.filename)
+       file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+       home.info = request.form.get('HomeTitleText')
+       home.infoimg = filename
+       db.session.commit()
+       return redirect(url_for("adminmain"))
+    return render_template('admin/edithome.html',homes=home)
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Home End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel MyProject Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-# ---------------------Admin Panel Project Iformaton----------------
+# ---------------------Admin Panel MyProject Web page ----------------
 @app.route('/admin/pro',methods=['GET','POST'])
 def adminpro():
     if request.method=='POST':
@@ -206,7 +269,7 @@ def adminpro():
 
 
 
-# ---------------------Admin Panel Project Delete-------------------
+# ---------------------Admin Panel Project Delete Web page -------------------
 @app.route('/admin/Project-delete/<int:id>', methods=['GET','POST'])
 def projectdelete(id):
     proje = Projectin.query.get_or_404(id)
@@ -214,11 +277,46 @@ def projectdelete(id):
     db.session.commit()
     return redirect(url_for('adminmain'))
 
+# -----------------------Admin Panel MyProject Edit Web page --------------------
+@app.route('/admin/pro/edit/<int:id>', methods=['GET','POST'])
+def editpro(id):
+    proce=Projectin.query.get_or_404(id)
+    if request.method=='POST':
+        file = request.files['pfile']
+        print(file)
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        proce.protime=request.form.get('cardTime')
+        proce.protitle=request.form.get('cardTitle')
+        proce.prosortcut=request.form.get('cardText')
+        proce.projareya = request.form.get('projareya')
+        proce.cardTextadd=request.form.get('cardTextadd')
+        proce.projareya2 = request.form.get('projareya2')
+        proce.projtitle = request.form.get('projtitle')
+        proce.listp =request.form.get('listp')
+        proce.listp1 =request.form.get('listp1')
+        proce.listp2 =request.form.get('listp2')
+        proce.listp3 =request.form.get('listp3')
+        proce.listp4 =request.form.get('listp4')
+        proce.listp5 =request.form.get('listp5')
+        proce.listp6 =request.form.get('listp6')
+        proce.listp7 =request.form.get('listp7')
+        proce.projareya3 = request.form.get('projareya3')
+        proce.proimg=filename
+        db.session.commit()
+        return redirect(url_for("adminmain"))
+    
+    return render_template('admin/editpro.html',proce=proce)
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel MyProject End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    
 
 
 
 
-# ---------------------Admin Panel About Iformaton---------------
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel About Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+# ---------------------Admin Panel About Web page ---------------
 
 @app.route('/admin/about',methods=['GET','POST'])
 def adminabout():
@@ -250,7 +348,7 @@ def adminabout():
     return render_template('admin/admipanelabout.html')
 
 
-# ----------------Admin Panel About Delete----------------------------
+# ----------------Admin Panel About Delete Web page ----------------------------
 @app.route('/admin/about-delete/<int:id>', methods=['GET','POST'])
 def aboutdelete(id):
     home = Aboutin.query.get_or_404(id)
@@ -258,56 +356,7 @@ def aboutdelete(id):
     db.session.commit()
     return redirect(url_for('adminmain'))
 
-
-
-# -----------------------Admin Panel Home  Edit----------------------
-@app.route('/admin/home/edit/<int:id>', methods=['GET','POST'])
-def edithome(id):
-    home = Homein.query.get_or_404(id)
-    if request.method == 'POST':
-       file = request.files['file']
-       print(file)
-       filename = secure_filename(file.filename)
-       file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-       home.info = request.form.get('HomeTitleText')
-       home.infoimg = filename
-       db.session.commit()
-       return redirect(url_for("adminmain"))
-    return render_template('admin/edithome.html',homes=home)
-
-
-# -----------------------Admin Panel Project Edit--------------------
-@app.route('/admin/pro/edit/<int:id>', methods=['GET','POST'])
-def editpro(id):
-    proce=Projectin.query.get_or_404(id)
-    if request.method=='POST':
-        file = request.files['pfile']
-        print(file)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        proce.protime=request.form.get('cardTime')
-        proce.protitle=request.form.get('cardTitle')
-        proce.prosortcut=request.form.get('cardText')
-        proce.projareya = request.form.get('projareya')
-        proce.cardTextadd=request.form.get('cardTextadd')
-        proce.projareya2 = request.form.get('projareya2')
-        proce.projtitle = request.form.get('projtitle')
-        proce.listp =request.form.get('listp')
-        proce.listp1 =request.form.get('listp1')
-        proce.listp2 =request.form.get('listp2')
-        proce.listp3 =request.form.get('listp3')
-        proce.listp4 =request.form.get('listp4')
-        proce.listp5 =request.form.get('listp5')
-        proce.listp6 =request.form.get('listp6')
-        proce.listp7 =request.form.get('listp7')
-        proce.projareya3 = request.form.get('projareya3')
-        proce.proimg=filename
-        db.session.commit()
-        return redirect(url_for("adminmain"))
-    
-    return render_template('admin/editpro.html',proce=proce)
-
-
+# -----------------------Admin Panel About Edit Web page ----------------------
 @app.route('/admin/about/edit/<int:id>', methods=['GET','POST'])
 def editabout(id):
     aboute=Aboutin.query.get_or_404(id)
@@ -332,16 +381,8 @@ def editabout(id):
         db.session.commit()
         return redirect(url_for("adminmain"))
     return render_template('admin/editabout.html',aboute=aboute)
-    
-# ----------------Admin Panel Login Add Iformation----------------------
 
-@app.route('/admin/login/edit/<int:id>', methods=['GET','POST'])
-def editlogin(id):
-    user=Admin.query.get_or_404(id)
-    if request.method=='POST':
-        user.login=request.form.get('login')
-        user.password=request.form.get('password')
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('adminmain'))
-    return render_template('admin/editadmin.html',user=user)
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel About End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+

@@ -1,6 +1,12 @@
-from postd import db
+from postd import db ,login_manager
+from flask_login import UserMixin
 
-# -------------------Main Website----------------------
+# ------------------- Login ----------------------
+@login_manager.user_loader
+def load_user(user_id):
+    return Admin.query.get(user_id)
+
+# ------------------- Main Login Web page----------------------
 
 # export FLASK_APP=run.py
 
@@ -64,6 +70,7 @@ class Projectin(db.Model):
 
 
 
+# ------------------- Contact Iformation----------------------
 
 class Contactin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -76,16 +83,16 @@ class Contactin(db.Model):
     def __repr__(self):
         return '<Contactin %r>' % self.fulname
 
+# ------------------- Login Web page ----------------------
 
-class Admin(db.Model):
+class Admin(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     login= db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
-    
     
 
     def __repr__(self):
-        return '<Contactin %r>' % self.fulname
+        return '<Contactin %r>' % self.login
 
 
