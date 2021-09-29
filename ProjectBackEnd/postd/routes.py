@@ -116,8 +116,9 @@ def loginadd():
     return render_template('admin/admincreatelog.html',form=form)
 
 # ----------------Admin Panel Login Delete Web page ----------------------
-@login_required
+
 @app.route('/admin/login-delete/<int:id>', methods=['GET','POST'])
+@login_required
 def logindelete(id):
     user = Admin.query.get_or_404(id)
     db.session.delete(user)
