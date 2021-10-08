@@ -12,5 +12,5 @@ class ContactFrom(FlaskForm):
 
 class Adminlogin(FlaskForm):
     login=StringField('username',validators=[DataRequired()])
-    password=StringField('password',validators=[DataRequired()])
+    password=StringField('password',validators=[DataRequired()],widget=PasswordInput())
     submit=SubmitField('Send')

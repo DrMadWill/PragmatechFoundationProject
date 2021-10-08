@@ -1,7 +1,7 @@
 from flask import Flask,redirect,render_template,request,url_for,session
 import flask_login
 from werkzeug.utils import secure_filename
-from . models import Homein,Aboutin,Projectin,Contactin,Admin
+from . models import Homein,Aboutin,Projectin,Contactin,Admin,Backgroundimg
 from postd import app,db,os ,bcrypt,login_manager
 from flask_login import login_user,login_required,logout_user
 from postd.forms import ContactFrom,Adminlogin
@@ -25,28 +25,40 @@ def main():
         db.session.add(contact)
         db.session.commit()
         return redirect(url_for('main'))
+# ---------------Background Img Iformasion --------------------- 
+    backgroundimgall=Backgroundimg.query.all()
+    for backgroundimg in backgroundimgall:
+        if backgroundimg.show=="1":
+            backimg=Backgroundimg.query.get_or_404(backgroundimg.id)
+
 # ---------------Home Iformasion --------------------- 
     homeinfoall=Homein.query.all()
-    hinfolen=len(homeinfoall)-1
-    homeinfo=homeinfoall[hinfolen]
+    for info_home in homeinfoall:
+        if info_home.show=="1":
+            homeinfo=Homein.query.get_or_404(info_home.id)
+    
 # ---------------About Iformasion ---------------------
     
     aboutinfoall=Aboutin.query.all()
-    ainfolen=len(aboutinfoall)-1
-    aboutinfo=aboutinfoall[ainfolen]
+    for info_about in aboutinfoall:
+        if info_about.show=="1":
+            aboutinfo=Aboutin.query.get_or_404(info_about.id)
+            
 # ----------------MyProject Iformasion -----------------
     proje = Projectin.query.all()
-    c=len(proje)-1
-    prostatic=[proje[c],proje[c-1],proje[c-2],proje[c-3]]
-    # prostatic=proje[-4:]
     proje =proje[::-1]
+    prostatic=[]
     shadowbox=[]
     a=0;
     for infora in proje:
-        a+=1
-        if a>4 :
-            shadowbox.append(infora)   
-    return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo,form=form)
+        if infora.show=="1":    
+            a+=1
+            if a>4 :
+                shadowbox.append(infora)
+            else:
+                prostatic.append(infora)  
+             
+    return render_template('maxwill.html',projec=shadowbox,homeinfo=homeinfo,prostatic=prostatic,aboutinfo=aboutinfo,form=form,backimg=backimg)
 
 
 
@@ -58,7 +70,10 @@ def main():
 @app.route('/project/<int:id>', methods=['GET','POST'])
 def project(id):
     procejt=Projectin.query.get_or_404(id)
-    return render_template('will-project.html',procejt=procejt)
+    bacgroundimall=Backgroundimg.query.all()
+    hinfolen=len(bacgroundimall)-1
+    backimg=bacgroundimall[hinfolen]
+    return render_template('will-project.html',procejt=procejt,backimg=backimg)
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -133,10 +148,10 @@ def logout():
     return redirect(url_for('login'))
 
 
-
-
-
 # >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
 
 
 
@@ -157,7 +172,57 @@ def adminmain():
     project=project[::-1]
     about=Aboutin.query.all()
     about=about[::-1]
-    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project,admin=admin)
+    backimgAll=Backgroundimg().query.all()
+    backimg=backimgAll[::-1]
+    if request.method=='POST':
+        if "show" in request.form:
+            show_id=int(request.form.get('show'))
+            for show_other in backimgAll:
+                if show_other.id==show_id:
+                    show_other.show="1"
+                else:
+                    show_other.show="0"
+            
+            db.session.add(show_other)
+        
+        if "show_home" in request.form:
+            show_home_id=int(request.form.get('show_home'))
+            for info_home in home:
+                if info_home.id==show_home_id:
+                    info_home.show="1"
+                else:
+                    info_home.show="0"
+            db.session.add(info_home)
+        
+        if  "show_about" in request.form:
+            show_about_id=int(request.form.get("show_about"))
+           
+            for info_about in about:
+                if info_about.id==show_about_id:
+                    info_about.show="1"
+                else:
+                    info_about.show="0"
+            db.session.add(info_about)
+
+        if "show_project" in request.form:
+            show_project_id=int(request.form.get('show_project'))
+            show_project=Projectin.query.get_or_404(show_project_id)
+            show_project.show="1"
+            db.session.add(show_project)
+        
+        if "unshow_project" in request.form:
+            unshow_project_id=int(request.form.get('unshow_project'))
+            unshow_project=Projectin.query.get_or_404(unshow_project_id)
+            unshow_project.show="0"
+            db.session.add(unshow_project)
+
+
+        # show_about_id=int(request.form.get(""))
+        db.session.commit()
+        return redirect(url_for('adminmain'))
+
+    return render_template('admin/adminmain.html',contact=contact,home=home,about=about,project=project,admin=admin,backimg=backimg)
+
 
     
 
@@ -222,6 +287,34 @@ def edithome(id):
        return redirect(url_for("adminmain"))
     return render_template('admin/edithome.html',homes=home)
 
+
+# ----------------Admin Panel Bacgroundimg Web page ----------------------
+@app.route('/admin/bacgroundimg',methods=['GET','POST'])
+@login_required
+def bacgroundimg():
+    if request.method=='POST':
+        file = request.files['file']
+        print(file)
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        bacgroundim=Backgroundimg(
+            infoimg=filename
+        )
+        
+        db.session.add(bacgroundim)
+        db.session.commit()
+        return redirect(url_for('adminmain'))
+    
+    return render_template('admin/adminbacground.html')
+
+# ---------------------Admin Panel Project Delete Web page -------------------
+@app.route('/admin/backgroundimg-delete/<int:id>', methods=['GET','POST'])
+@login_required
+def backgoundelete(id):
+    proje = Backgroundimg.query.get_or_404(id)
+    db.session.delete(proje)
+    db.session.commit()
+    return redirect(url_for('adminmain'))
 
 # >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Home End <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

@@ -1,4 +1,6 @@
-from postd import db ,login_manager
+
+
+from postd import db,login_manager
 from flask_login import UserMixin
 
 # ------------------- Login ----------------------
@@ -10,12 +12,14 @@ def load_user(user_id):
 
 # export FLASK_APP=run.py
 
+
+
 # -------------------Home Iformation----------------------
 class Homein(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     info = db.Column(db.String(80), nullable=False)
     infoimg=db.Column(db.String(100))
-    
+    show=db.Column(db.String(1))
 
     def __repr__(self):
         return '<Homein %r>' % self.info
@@ -37,6 +41,7 @@ class Aboutin(db.Model):
     disgen5 = db.Column(db.String(25),nullable=False)
     disgen5interest = db.Column(db.Integer,nullable=False)
     aboutinfoimg=db.Column(db.String(100))
+    show=db.Column(db.String(1))
     
 
     def __repr__(self):
@@ -63,7 +68,7 @@ class Projectin(db.Model):
     listp7 = db.Column(db.String(70))
     projareya3 = db.Column(db.Text)
     proimg=db.Column(db.String(100))
-    
+    show=db.Column(db.String(10))
 
     def __repr__(self):
         return '<Projectin %r>' % self.protitle
@@ -95,4 +100,11 @@ class Admin(db.Model,UserMixin):
     def __repr__(self):
         return '<Contactin %r>' % self.login
 
+class Backgroundimg(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    infoimg = db.Column(db.String(80), nullable=False)
+    show=db.Column(db.String(1))
+    
+    def __repr__(self):
+        return '<Homein %r>' % self.infoimg
 
